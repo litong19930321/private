@@ -11,6 +11,8 @@
 #import <objc/runtime.h>
 #import "Person.h"
 #import "UIImage+ImageName.h"
+#import "NSObject+Log.h"
+#import "NSObject+ToModel.h"
 @interface ViewController ()
 
 @end
@@ -27,14 +29,17 @@
 //    ((void (*) (id,SEL))objc_msgSend)(self,@selector(question_AboutSendMsg));
     
     //给分类增加 属性的测试
-    [self addPropetyForCategory];
+//    [self addPropetyForCategory];
 //    void (*categoryPropety) (id,SEL);
 //    categoryPropety = (void (*) (id,SEL))[self methodForSelector:@selector(addPropetyForCategory)];
 //    categoryPropety(self,@selector(addPropetyForCategory));
     
     //交换方法的测试
-    ((void (*) (id,SEL))objc_msgSend)(self,@selector(exchangeMethod));
-    ((void (*) (id,SEL))objc_msgSend)(self,@selector(exchangeMethod));
+//    ((void (*) (id,SEL))objc_msgSend)(self,@selector(exchangeMethod));
+    
+    //根据字典打印属性
+    ((void (*) (id,SEL))objc_msgSend)(self,@selector(printJSONTOProp));
+    
 }
 #pragma mark ---- 关于sendMsg问题
 -(void)question_AboutSendMsg{
@@ -80,4 +85,40 @@
     [p dream];
     
 }
+#pragma mark --- 把字典转化为属性输出
+-(void)printJSONTOProp{
+//    NSDictionary * dict = @{
+//                            @"name":@"蛋壳儿",
+//                            @"age":@20,
+//                            @"hobby":@[@"吃饭",@"睡觉",@"做梦"],
+//                            };
+//    [NSObject resoveDict:dict];
+//    Person * person = [[Person alloc] init];
+//    [person setValuesForKeysWithDictionary:dict];
+    
+    NSDictionary * dict = @{
+                            @"name":@"蛋壳儿",
+                            @"age" : @20
+                            };
+    //方法内部使用  KVC赋值 
+    Person * person = [Person modelWithDictionary:dict];
+    
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
