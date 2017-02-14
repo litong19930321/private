@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9D92E6521E53456200436865 /* NSObject+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D92E6511E53456200436865 /* NSObject+Log.m */; };
 		9D92E6551E534E6200436865 /* NSObject+ToModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D92E6541E534E6200436865 /* NSObject+ToModel.m */; };
+		9D92E6581E53626200436865 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D92E6571E53626200436865 /* Car.m */; };
 		9DBE7D461E52D44700439DF9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE7D451E52D44700439DF9 /* main.m */; };
 		9DBE7D491E52D44700439DF9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE7D481E52D44700439DF9 /* AppDelegate.m */; };
 		9DBE7D4C1E52D44700439DF9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE7D4B1E52D44700439DF9 /* ViewController.m */; };
@@ -43,6 +44,8 @@
 		9D92E6511E53456200436865 /* NSObject+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Log.m"; sourceTree = "<group>"; };
 		9D92E6531E534E6200436865 /* NSObject+ToModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ToModel.h"; sourceTree = "<group>"; };
 		9D92E6541E534E6200436865 /* NSObject+ToModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ToModel.m"; sourceTree = "<group>"; };
+		9D92E6561E53626200436865 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		9D92E6571E53626200436865 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		9DBE7D411E52D44700439DF9 /* RuntimePrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimePrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBE7D451E52D44700439DF9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DBE7D471E52D44700439DF9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 			children = (
 				9DBE7D781E52D4DC00439DF9 /* Person.h */,
 				9DBE7D791E52D4DC00439DF9 /* Person.m */,
+				9D92E6561E53626200436865 /* Car.h */,
+				9D92E6571E53626200436865 /* Car.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				9D92E6521E53456200436865 /* NSObject+Log.m in Sources */,
 				9DBE7D491E52D44700439DF9 /* AppDelegate.m in Sources */,
 				9DBE7D7A1E52D4DC00439DF9 /* Person.m in Sources */,
+				9D92E6581E53626200436865 /* Car.m in Sources */,
 				9DBE7D461E52D44700439DF9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

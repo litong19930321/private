@@ -10,4 +10,5 @@
 
 @interface NSObject (ToModel)
 +(instancetype)modelWithDictionary:(NSDictionary *)dict;
++(instancetype)modelWithDictionaryProp:(NSDictionary *)dict;
 @end

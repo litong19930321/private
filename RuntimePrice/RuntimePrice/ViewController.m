@@ -13,6 +13,7 @@
 #import "UIImage+ImageName.h"
 #import "NSObject+Log.h"
 #import "NSObject+ToModel.h"
+#import "Car.h"
 @interface ViewController ()
 
 @end
@@ -22,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //此处是关于objc_msgSend的相关内容
+    //此处是关于objc_msgSend的相关内容  直接使用objc_msgSend调用方法，不用再头文件中声明也可调用
 //    void (*msgSend) (id,SEL);
 //    msgSend = (void (*) (id,SEL))[self methodForSelector:@selector(question_AboutSendMsg)];
 //    msgSend(self,@selector(question_AboutSendMsg));
@@ -86,23 +87,18 @@
     
 }
 #pragma mark --- 把字典转化为属性输出
+
 -(void)printJSONTOProp{
-//    NSDictionary * dict = @{
-//                            @"name":@"蛋壳儿",
-//                            @"age":@20,
-//                            @"hobby":@[@"吃饭",@"睡觉",@"做梦"],
-//                            };
-//    [NSObject resoveDict:dict];
-//    Person * person = [[Person alloc] init];
-//    [person setValuesForKeysWithDictionary:dict];
-    
     NSDictionary * dict = @{
                             @"name":@"蛋壳儿",
                             @"age" : @20
                             };
-    //方法内部使用  KVC赋值 
-    Person * person = [Person modelWithDictionary:dict];
-    
+    //方法内部使用  KVC赋值   打印成员变量
+//    Person * person = [Person modelWithDictionary:dict];
+    //打印属性值
+    Car * car = [Car modelWithDictionaryProp:dict];
+    //直接找Car类的IMP表
+//    ((id (*) (id,SEL,id))objc_msgSend)((id)[Car class],@selector(modelWithDictionaryProp:),@{});
 }
 
 @end

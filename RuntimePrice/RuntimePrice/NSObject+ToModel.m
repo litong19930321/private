@@ -16,7 +16,7 @@
     Ivar * ivars =  class_copyIvarList(self, &count);
     
     for (int i = 0; i < count; i ++) {
-        //取出model的属性
+        //取出model的成员变量  如果只取出 @propety的话 应该用 objc_propety_t
         Ivar ivar = ivars[i];
         NSString * propName = [NSString stringWithUTF8String:ivar_getName(ivar)];
         NSLog(@"propName : %@",propName);
@@ -29,5 +29,21 @@
     }
     return objc;
 }
-
+//属性类型  name值：T  value：变化
+//编码类型  name值：C(copy) &(strong) W(weak) 空(assign) 等 value：无
+//非/原子性 name值：空(atomic) N(Nonatomic)  value：无
+//变量名称  name值：V  value：变化
++(instancetype)modelWithDictionaryProp:(NSDictionary *)dict{
+    id objc = [[self alloc] init];
+    unsigned int count;
+    //取出所有的属性  (成员变量并没有取出)
+    objc_property_t * properties = class_copyPropertyList([self class], &count);
+    for (int i = 0; i < count; i ++) {
+        objc_property_t property = properties[i];
+        NSString * propertyName = [NSString stringWithUTF8String:property_getName(property)];
+        NSString * propertyAttribute = [NSString stringWithUTF8String:property_getAttributes(property)];
+        NSLog(@"属性的名称：%@      属性的描述：%@",propertyName,propertyAttribute);
+    }
+    return objc;
+}
 @end
