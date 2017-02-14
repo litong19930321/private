@@ -89,16 +89,17 @@
 #pragma mark --- 把字典转化为属性输出
 
 -(void)printJSONTOProp{
-    NSDictionary * dict = @{
-                            @"name":@"蛋壳儿",
-                            @"age" : @20
-                            };
+//    NSDictionary * dict = @{
+//                            @"name":@"蛋壳儿",
+//                            @"age" : @20
+//                            };
     //方法内部使用  KVC赋值   打印成员变量
 //    Person * person = [Person modelWithDictionary:dict];
     //打印属性值
-    Car * car = [Car modelWithDictionaryProp:dict];
+//    Car * car = [Car modelWithDictionaryProp:@];
     //直接找Car类的IMP表
-//    ((id (*) (id,SEL,id))objc_msgSend)((id)[Car class],@selector(modelWithDictionaryProp:),@{});
+    ((id (*) (id,SEL,id))objc_msgSend)((id)[Car class],@selector(modelWithDictionaryProp:),@{});
+ 
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Car : NSObject{
+@interface Car : NSObject<NSCoding>{
     NSNumber * price;//成员变量
 }
 
