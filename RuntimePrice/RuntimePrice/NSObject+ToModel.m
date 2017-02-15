@@ -43,6 +43,19 @@
         NSString * propertyName = [NSString stringWithUTF8String:property_getName(property)];
         NSString * propertyAttribute = [NSString stringWithUTF8String:property_getAttributes(property)];
         NSLog(@"属性的名称：%@      属性的描述：%@",propertyName,propertyAttribute);
+        
+        
+        NSString * attrs = @(property_getAttributes(property));
+        NSUInteger dotLoc = [attrs rangeOfString:@","].location;
+        NSString *code = nil;
+        NSUInteger loc = 1;
+        if (dotLoc == NSNotFound) { // 没有,
+            code = [attrs substringFromIndex:loc];
+        } else {
+            code = [attrs substringWithRange:NSMakeRange(loc, dotLoc - loc)];
+        }
+
+        NSLog(@"--%@",code);
     }
     return objc;
 }

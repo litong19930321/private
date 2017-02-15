@@ -31,4 +31,7 @@
         [aCoder encodeObject:[self valueForKey:key] forKey:key];
     }
 }
++(BOOL)supportsSecureCoding{
+    return YES;
+}
 @end

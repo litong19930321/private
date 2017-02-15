@@ -14,6 +14,8 @@
 #import "NSObject+Log.h"
 #import "NSObject+ToModel.h"
 #import "Car.h"
+#import "MJExtension.h"
+#import "ArchiveModel.h"
 @interface ViewController ()
 
 @end
@@ -39,8 +41,8 @@
 //    ((void (*) (id,SEL))objc_msgSend)(self,@selector(exchangeMethod));
     
     //根据字典打印属性
-    ((void (*) (id,SEL))objc_msgSend)(self,@selector(printJSONTOProp));
-    
+//    ((void (*) (id,SEL))objc_msgSend)(self,@selector(printJSONTOProp));
+    ((void (*) (id,SEL))objc_msgSend)(self,@selector(testJsonToModel));
 }
 #pragma mark ---- 关于sendMsg问题
 -(void)question_AboutSendMsg{
@@ -99,9 +101,30 @@
 //    Car * car = [Car modelWithDictionaryProp:@];
     //直接找Car类的IMP表
     ((id (*) (id,SEL,id))objc_msgSend)((id)[Car class],@selector(modelWithDictionaryProp:),@{});
- 
+}
+//json 转 model
+-(void)testJsonToModel{
+    NSDictionary * dict = @{@"name":@"testname"};
+    Person * model = [Person mj_objectWithKeyValues:dict];
+   
+    
+}
+//归档的测试
+-(void)practice{
+    ArchiveModel * archiveModel = [[ArchiveModel alloc] init];
+    archiveModel.name = @"test";
+    archiveModel.age = @20;
+    archiveModel.count = 15;
+    [NSKeyedArchiver archiveRootObject:archiveModel toFile:[self getUserPath]];
+    ArchiveModel * unarchModel =  [NSKeyedUnarchiver unarchiveObjectWithFile:[self getUserPath]];
 }
 
+-(NSString *)getUserPath
+{
+    NSString *docPath=  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *path=[docPath stringByAppendingPathComponent:@"user.data"];
+    return path;
+}
 @end
 
 
