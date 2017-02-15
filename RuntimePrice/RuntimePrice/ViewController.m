@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     //此处是关于objc_msgSend的相关内容  直接使用objc_msgSend调用方法，不用再头文件中声明也可调用
 //    void (*msgSend) (id,SEL);
 //    msgSend = (void (*) (id,SEL))[self methodForSelector:@selector(question_AboutSendMsg)];
@@ -42,7 +42,7 @@
     
     //根据字典打印属性
 //    ((void (*) (id,SEL))objc_msgSend)(self,@selector(printJSONTOProp));
-    ((void (*) (id,SEL))objc_msgSend)(self,@selector(testJsonToModel));
+    ((void (*) (id,SEL))objc_msgSendSuper)(self,@selector(testJsonToModel));
 }
 #pragma mark ---- 关于sendMsg问题
 -(void)question_AboutSendMsg{
@@ -104,9 +104,9 @@
 }
 //json 转 model
 -(void)testJsonToModel{
-    NSDictionary * dict = @{@"name":@"testname"};
+    NSDictionary * dict = @{@"name1":@"testname"};
     Person * model = [Person mj_objectWithKeyValues:dict];
-   
+    
     
 }
 //归档的测试

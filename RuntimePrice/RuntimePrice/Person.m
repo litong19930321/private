@@ -8,8 +8,11 @@
 
 #import "Person.h"
 #import <objc/runtime.h>
+#import "MJExtension.h"
 @implementation Person
-
++(NSDictionary *)mj_replacedKeyFromPropertyName{
+    return @{@"name":@"name1"};
+}
 
 //无参数无返回值
 -(void)eat{

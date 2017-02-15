@@ -11,7 +11,6 @@
 #import "MJExtension.h"
 
 @implementation ArchiveModel
-
 -(instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super init];
     if (self) {

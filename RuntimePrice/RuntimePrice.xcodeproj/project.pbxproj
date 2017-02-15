@@ -31,6 +31,9 @@
 		9DC126EF1E54247B003011E0 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC126E31E54247B003011E0 /* NSObject+MJProperty.m */; };
 		9DC126F01E54247B003011E0 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC126E51E54247B003011E0 /* NSString+MJExtension.m */; };
 		9DC126F31E542EDE003011E0 /* ArchiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC126F21E542EDE003011E0 /* ArchiveModel.m */; };
+		9DC126F61E544C99003011E0 /* KVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC126F51E544C99003011E0 /* KVCViewController.m */; };
+		9DC126F91E544D47003011E0 /* KVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC126F81E544D47003011E0 /* KVCModel.m */; };
+		9DC126FD1E545540003011E0 /* NSObject+DLIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC126FC1E545540003011E0 /* NSObject+DLIntrospection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +103,13 @@
 		9DC126E51E54247B003011E0 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		9DC126F11E542EDE003011E0 /* ArchiveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveModel.h; sourceTree = "<group>"; };
 		9DC126F21E542EDE003011E0 /* ArchiveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveModel.m; sourceTree = "<group>"; };
+		9DC126F41E544C99003011E0 /* KVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVCViewController.h; sourceTree = "<group>"; };
+		9DC126F51E544C99003011E0 /* KVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVCViewController.m; sourceTree = "<group>"; };
+		9DC126F71E544D47003011E0 /* KVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVCModel.h; sourceTree = "<group>"; };
+		9DC126F81E544D47003011E0 /* KVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVCModel.m; sourceTree = "<group>"; };
+		9DC126FB1E545540003011E0 /* NSObject+DLIntrospection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DLIntrospection.h"; sourceTree = "<group>"; };
+		9DC126FC1E545540003011E0 /* NSObject+DLIntrospection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DLIntrospection.m"; sourceTree = "<group>"; };
+		9DC126FF1E545B47003011E0 /* KVCModel_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVCModel_Private.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +160,7 @@
 		9DBE7D431E52D44700439DF9 /* RuntimePrice */ = {
 			isa = PBXGroup;
 			children = (
+				9DC126FA1E545540003011E0 /* DLIntrospection */,
 				9DC126CF1E54247B003011E0 /* MJExtension */,
 				9DBE7D7E1E52EB0B00439DF9 /* category */,
 				9DBE7D771E52D4CA00439DF9 /* models */,
@@ -157,6 +168,8 @@
 				9DBE7D481E52D44700439DF9 /* AppDelegate.m */,
 				9DBE7D4A1E52D44700439DF9 /* ViewController.h */,
 				9DBE7D4B1E52D44700439DF9 /* ViewController.m */,
+				9DC126F41E544C99003011E0 /* KVCViewController.h */,
+				9DC126F51E544C99003011E0 /* KVCViewController.m */,
 				9DBE7D4D1E52D44700439DF9 /* Main.storyboard */,
 				9DBE7D501E52D44700439DF9 /* Assets.xcassets */,
 				9DBE7D521E52D44700439DF9 /* LaunchScreen.storyboard */,
@@ -201,6 +214,9 @@
 				9D92E6571E53626200436865 /* Car.m */,
 				9DC126F11E542EDE003011E0 /* ArchiveModel.h */,
 				9DC126F21E542EDE003011E0 /* ArchiveModel.m */,
+				9DC126F71E544D47003011E0 /* KVCModel.h */,
+				9DC126F81E544D47003011E0 /* KVCModel.m */,
+				9DC126FF1E545B47003011E0 /* KVCModel_Private.h */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -244,6 +260,15 @@
 				9DC126E51E54247B003011E0 /* NSString+MJExtension.m */,
 			);
 			path = MJExtension;
+			sourceTree = "<group>";
+		};
+		9DC126FA1E545540003011E0 /* DLIntrospection */ = {
+			isa = PBXGroup;
+			children = (
+				9DC126FB1E545540003011E0 /* NSObject+DLIntrospection.h */,
+				9DC126FC1E545540003011E0 /* NSObject+DLIntrospection.m */,
+			);
+			path = DLIntrospection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +412,7 @@
 				9DC126F31E542EDE003011E0 /* ArchiveModel.m in Sources */,
 				9DBE7D7D1E52EB0100439DF9 /* UIImage+ImageName.m in Sources */,
 				9DC126E71E54247B003011E0 /* MJExtensionConst.m in Sources */,
+				9DC126F61E544C99003011E0 /* KVCViewController.m in Sources */,
 				9DBE7D4C1E52D44700439DF9 /* ViewController.m in Sources */,
 				9DC126E81E54247B003011E0 /* MJFoundation.m in Sources */,
 				9DC126EC1E54247B003011E0 /* NSObject+MJClass.m in Sources */,
@@ -395,8 +421,10 @@
 				9D92E6521E53456200436865 /* NSObject+Log.m in Sources */,
 				9DBE7D491E52D44700439DF9 /* AppDelegate.m in Sources */,
 				9DC126EA1E54247B003011E0 /* MJPropertyKey.m in Sources */,
+				9DC126F91E544D47003011E0 /* KVCModel.m in Sources */,
 				9DBE7D7A1E52D4DC00439DF9 /* Person.m in Sources */,
 				9D92E6581E53626200436865 /* Car.m in Sources */,
+				9DC126FD1E545540003011E0 /* NSObject+DLIntrospection.m in Sources */,
 				9DC126EF1E54247B003011E0 /* NSObject+MJProperty.m in Sources */,
 				9DBE7D461E52D44700439DF9 /* main.m in Sources */,
 				9DC126E91E54247B003011E0 /* MJProperty.m in Sources */,
