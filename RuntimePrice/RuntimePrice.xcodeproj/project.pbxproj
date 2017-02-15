@@ -34,6 +34,7 @@
 		9DC126F61E544C99003011E0 /* KVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC126F51E544C99003011E0 /* KVCViewController.m */; };
 		9DC126F91E544D47003011E0 /* KVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC126F81E544D47003011E0 /* KVCModel.m */; };
 		9DC126FD1E545540003011E0 /* NSObject+DLIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC126FC1E545540003011E0 /* NSObject+DLIntrospection.m */; };
+		9DC127031E546694003011E0 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC127021E546694003011E0 /* Student.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,8 @@
 		9DC126FB1E545540003011E0 /* NSObject+DLIntrospection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DLIntrospection.h"; sourceTree = "<group>"; };
 		9DC126FC1E545540003011E0 /* NSObject+DLIntrospection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DLIntrospection.m"; sourceTree = "<group>"; };
 		9DC126FF1E545B47003011E0 /* KVCModel_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVCModel_Private.h; sourceTree = "<group>"; };
+		9DC127011E546694003011E0 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		9DC127021E546694003011E0 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +220,8 @@
 				9DC126F71E544D47003011E0 /* KVCModel.h */,
 				9DC126F81E544D47003011E0 /* KVCModel.m */,
 				9DC126FF1E545B47003011E0 /* KVCModel_Private.h */,
+				9DC127011E546694003011E0 /* Student.h */,
+				9DC127021E546694003011E0 /* Student.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 			files = (
 				9DC126EE1E54247B003011E0 /* NSObject+MJKeyValue.m in Sources */,
 				9DC126EB1E54247B003011E0 /* MJPropertyType.m in Sources */,
+				9DC127031E546694003011E0 /* Student.m in Sources */,
 				9DC126F31E542EDE003011E0 /* ArchiveModel.m in Sources */,
 				9DBE7D7D1E52EB0100439DF9 /* UIImage+ImageName.m in Sources */,
 				9DC126E71E54247B003011E0 /* MJExtensionConst.m in Sources */,

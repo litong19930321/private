@@ -65,4 +65,7 @@ void  running (id self,SEL sel){
 -(void)sleep{
     NSLog(@"sleep");
 }
+-(void)mustRewrite{
+    NSAssert(NO, @"must should be rewrite");
+}
 @end

@@ -22,6 +22,7 @@
 //    self.window.rootViewController = [[ViewController alloc] init];
     self.window.rootViewController = [[KVCViewController alloc] init];
     [self.window makeKeyWindow];
+
     return YES;
 }
 

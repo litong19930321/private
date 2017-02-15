@@ -13,7 +13,7 @@
 @property(nonatomic,copy) NSString * name;
 
 @property(nonatomic,strong) NSNumber * age;
-
+-(void)mustRewrite;
 //无参数无返回值
 -(void)eat;
 //有参数无返回值
