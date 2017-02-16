@@ -9,8 +9,15 @@
 #import "Student.h"
 
 @implementation Student
-//子类如果不重写 则会直接抛出错误  
-//-(void)mustRewrite{
-//    NSLog(@"rewrite");
+//+ (void)initialize
+//{
+//    if (self == [Person class]) {
+//        NSLog(@"调用 initialize 方法");
+//    }
 //}
+
+//子类如果不重写 则会直接抛出错误  
+-(void)mustRewrite{
+    NSLog(@"rewrite");
+}
 @end

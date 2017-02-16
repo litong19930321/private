@@ -29,4 +29,5 @@
 @property (nonatomic, assign) bool afterFlooding;//用于测试bool类型的值 b或c
 
 @property (nonatomic, assign) Method method;
+-(void)run:(NSNumber *)speed;
 @end

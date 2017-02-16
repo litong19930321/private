@@ -10,6 +10,13 @@
 #import <objc/runtime.h>
 #import "MJExtension.h"
 @implementation Person
++ (void)initialize
+{
+    if (self == [Person class]) {
+        NSLog(@"调用 initialize 方法");
+    }
+}
+
 +(NSDictionary *)mj_replacedKeyFromPropertyName{
     return @{@"name":@"name1"};
 }

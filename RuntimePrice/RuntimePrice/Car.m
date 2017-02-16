@@ -36,4 +36,8 @@
 +(BOOL)supportsSecureCoding{
     return YES;
 }
+
+-(void)run:(NSNumber *)speed{
+    NSLog(@"origin run %@",speed);
+}
 @end

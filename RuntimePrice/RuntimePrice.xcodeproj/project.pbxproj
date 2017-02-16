@@ -35,6 +35,7 @@
 		9DC126F91E544D47003011E0 /* KVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC126F81E544D47003011E0 /* KVCModel.m */; };
 		9DC126FD1E545540003011E0 /* NSObject+DLIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC126FC1E545540003011E0 /* NSObject+DLIntrospection.m */; };
 		9DC127031E546694003011E0 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC127021E546694003011E0 /* Student.m */; };
+		9DD4C2A71E54AE0B0061C663 /* Car+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4C2A61E54AE0B0061C663 /* Car+Test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		9DC126FF1E545B47003011E0 /* KVCModel_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVCModel_Private.h; sourceTree = "<group>"; };
 		9DC127011E546694003011E0 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		9DC127021E546694003011E0 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		9DD4C2A51E54AE0B0061C663 /* Car+Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Car+Test.h"; sourceTree = "<group>"; };
+		9DD4C2A61E54AE0B0061C663 /* Car+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Car+Test.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +225,8 @@
 				9DC126FF1E545B47003011E0 /* KVCModel_Private.h */,
 				9DC127011E546694003011E0 /* Student.h */,
 				9DC127021E546694003011E0 /* Student.m */,
+				9DD4C2A51E54AE0B0061C663 /* Car+Test.h */,
+				9DD4C2A61E54AE0B0061C663 /* Car+Test.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				9DC126EF1E54247B003011E0 /* NSObject+MJProperty.m in Sources */,
 				9DBE7D461E52D44700439DF9 /* main.m in Sources */,
 				9DC126E91E54247B003011E0 /* MJProperty.m in Sources */,
+				9DD4C2A71E54AE0B0061C663 /* Car+Test.m in Sources */,
 				9DC126ED1E54247B003011E0 /* NSObject+MJCoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
