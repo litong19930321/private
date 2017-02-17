@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D5209831E55E7260072C35D /* URLSessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5209821E55E7260072C35D /* URLSessionViewController.xib */; };
 		9DD7F4E91E5558760055D1DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD7F4E81E5558760055D1DB /* main.m */; };
 		9DD7F4EC1E5558760055D1DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD7F4EB1E5558760055D1DB /* AppDelegate.m */; };
 		9DD7F4F21E5558760055D1DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD7F4F01E5558760055D1DB /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D5209821E55E7260072C35D /* URLSessionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = URLSessionViewController.xib; sourceTree = "<group>"; };
 		9DD7F4E41E5558760055D1DB /* NetPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD7F4E81E5558760055D1DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DD7F4EA1E5558760055D1DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +107,9 @@
 		9D5209811E55E0380072C35D /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
+				9DD7F5341E55AC0F0055D1DB /* URLSessionViewController.h */,
+				9DD7F5351E55AC0F0055D1DB /* URLSessionViewController.m */,
+				9D5209821E55E7260072C35D /* URLSessionViewController.xib */,
 			);
 			name = URLSession;
 			sourceTree = "<group>";
@@ -137,8 +142,6 @@
 				9DD7F51A1E5558AA0055D1DB /* Runloop */,
 				9DD7F4EA1E5558760055D1DB /* AppDelegate.h */,
 				9DD7F4EB1E5558760055D1DB /* AppDelegate.m */,
-				9DD7F5341E55AC0F0055D1DB /* URLSessionViewController.h */,
-				9DD7F5351E55AC0F0055D1DB /* URLSessionViewController.m */,
 				9DD7F4F01E5558760055D1DB /* Main.storyboard */,
 				9DD7F4F31E5558760055D1DB /* Assets.xcassets */,
 				9DD7F4F51E5558760055D1DB /* LaunchScreen.storyboard */,
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DD7F51F1E5558CA0055D1DB /* RunLoopViewController.xib in Resources */,
+				9D5209831E55E7260072C35D /* URLSessionViewController.xib in Resources */,
 				9DD7F4F71E5558760055D1DB /* LaunchScreen.storyboard in Resources */,
 				9DD7F4F41E5558760055D1DB /* Assets.xcassets in Resources */,
 				9DD7F4F21E5558760055D1DB /* Main.storyboard in Resources */,
