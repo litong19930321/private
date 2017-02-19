@@ -24,6 +24,8 @@
 		9DD7F5321E55A47C0055D1DB /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD7F52B1E55A47C0055D1DB /* AFURLResponseSerialization.m */; };
 		9DD7F5331E55A47C0055D1DB /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD7F52D1E55A47C0055D1DB /* AFURLSessionManager.m */; };
 		9DD7F5361E55AC0F0055D1DB /* URLSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD7F5351E55AC0F0055D1DB /* URLSessionViewController.m */; };
+		9DEC7B2D1E56E4E7009BDB60 /* LearnAFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC7B2B1E56E4E7009BDB60 /* LearnAFViewController.m */; };
+		9DEC7B2E1E56E4E7009BDB60 /* LearnAFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DEC7B2C1E56E4E7009BDB60 /* LearnAFViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,9 @@
 		9DD7F52D1E55A47C0055D1DB /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		9DD7F5341E55AC0F0055D1DB /* URLSessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLSessionViewController.h; sourceTree = "<group>"; };
 		9DD7F5351E55AC0F0055D1DB /* URLSessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLSessionViewController.m; sourceTree = "<group>"; };
+		9DEC7B2A1E56E4E7009BDB60 /* LearnAFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnAFViewController.h; sourceTree = "<group>"; };
+		9DEC7B2B1E56E4E7009BDB60 /* LearnAFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnAFViewController.m; sourceTree = "<group>"; };
+		9DEC7B2C1E56E4E7009BDB60 /* LearnAFViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LearnAFViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +142,7 @@
 		9DD7F4E61E5558760055D1DB /* NetPractice */ = {
 			isa = PBXGroup;
 			children = (
+				9DEC7B291E56E455009BDB60 /* LearnAf */,
 				9D5209811E55E0380072C35D /* URLSession */,
 				9DD7F5201E55A47C0055D1DB /* AFNetworking */,
 				9DD7F51A1E5558AA0055D1DB /* Runloop */,
@@ -205,6 +211,16 @@
 				9DD7F52D1E55A47C0055D1DB /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		9DEC7B291E56E455009BDB60 /* LearnAf */ = {
+			isa = PBXGroup;
+			children = (
+				9DEC7B2A1E56E4E7009BDB60 /* LearnAFViewController.h */,
+				9DEC7B2B1E56E4E7009BDB60 /* LearnAFViewController.m */,
+				9DEC7B2C1E56E4E7009BDB60 /* LearnAFViewController.xib */,
+			);
+			name = LearnAf;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +334,7 @@
 			files = (
 				9DD7F51F1E5558CA0055D1DB /* RunLoopViewController.xib in Resources */,
 				9D5209831E55E7260072C35D /* URLSessionViewController.xib in Resources */,
+				9DEC7B2E1E56E4E7009BDB60 /* LearnAFViewController.xib in Resources */,
 				9DD7F4F71E5558760055D1DB /* LaunchScreen.storyboard in Resources */,
 				9DD7F4F41E5558760055D1DB /* Assets.xcassets in Resources */,
 				9DD7F4F21E5558760055D1DB /* Main.storyboard in Resources */,
@@ -349,6 +366,7 @@
 				9DD7F4EC1E5558760055D1DB /* AppDelegate.m in Sources */,
 				9DD7F4E91E5558760055D1DB /* main.m in Sources */,
 				9DD7F52F1E55A47C0055D1DB /* AFNetworkReachabilityManager.m in Sources */,
+				9DEC7B2D1E56E4E7009BDB60 /* LearnAFViewController.m in Sources */,
 				9DD7F51E1E5558CA0055D1DB /* RunLoopViewController.m in Sources */,
 				9DD7F5301E55A47C0055D1DB /* AFSecurityPolicy.m in Sources */,
 				9DD7F5311E55A47C0055D1DB /* AFURLRequestSerialization.m in Sources */,

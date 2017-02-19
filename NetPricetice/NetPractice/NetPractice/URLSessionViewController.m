@@ -128,6 +128,8 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite{
     CGFloat progress = 1.0 * totalBytesWritten / totalBytesExpectedToWrite;
     NSLog(@"total : %lld",totalBytesExpectedToWrite);
     NSLog(@"%f",progress);
+    //这个 方法是 暂停当前的下载任务并保存 当前的下载内容
+    
 //    [_downloadTask cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
 //        _gloableData = resumeData;
 //    }];
