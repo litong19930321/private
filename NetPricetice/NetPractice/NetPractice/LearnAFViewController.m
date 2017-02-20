@@ -8,7 +8,10 @@
 
 #import "LearnAFViewController.h"
 #import "AFNetworking.h"
-@interface LearnAFViewController ()
+@interface LearnAFViewController (){
+    NSThread * _globalThread;
+}
+@property (nonatomic,copy) NSString * name;
 
 @end
 
@@ -16,11 +19,44 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    //创建一个观察者  监听主runloop的各种状态
+    CFRunLoopRef loop = CFRunLoopGetMain();
+    CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(CFAllocatorGetDefault(), kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+        switch (activity) {
+            case kCFRunLoopEntry:
+                NSLog(@"kCFRunLoopEntry");
+                break;
+            case kCFRunLoopBeforeTimers:
+                NSLog(@"kCFRunLoopBeforeTimers");
+                break;
+            case kCFRunLoopBeforeSources:
+                NSLog(@"kCFRunLoopBeforeSources");
+                break;
+            case kCFRunLoopBeforeWaiting:
+                NSLog(@"kCFRunLoopBeforeWaiting");
+                break;
+            case kCFRunLoopAfterWaiting:
+                NSLog(@"kCFRunLoopAfterWaiting");
+                break;
+            case kCFRunLoopExit:
+                NSLog(@"kCFRunLoopExit");
+                break;
+            case kCFRunLoopAllActivities:
+                NSLog(@"kCFRunLoopAllActivities");
+                break;
+            default:
+                break;
+        }
+    });
+    CFRunLoopAddObserver(loop, observer, kCFRunLoopDefaultMode);
 }
+
+
+
 
 - (IBAction)startGet:(id)sender {
     [self startNetWorking];
+ 
 }
 - (IBAction)startPost:(id)sender {
     [self startNetWorkingPost];
