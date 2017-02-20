@@ -1054,7 +1054,11 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
         self.taskDidSendBodyData(session, task, bytesSent, totalBytesSent, totalUnitCount);
     }
 }
-
+/*
+ task完成之后的回调，成功和失败都会回调这里
+ 函数讨论：
+ 注意这里的error不会报告服务期端的error，他表示的是客户端这边的eroor，比如无法解析hostname或者连不上host主机。
+ */
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error

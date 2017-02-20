@@ -43,13 +43,24 @@
 }
 -(void)startNetWorkingPost{
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+//    AFSecurityPolicy * policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+        NSString *certFilePath = [[NSBundle mainBundle] pathForResource:@"lt.cer" ofType:nil];
+        NSData *certData = [NSData dataWithContentsOfFile:certFilePath];
+        NSSet *certSet = [NSSet setWithObjects:certData, nil];
+//        policy.pinnedCertificates = certSet;
+     AFSecurityPolicy * policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone withPinnedCertificates:certSet];
+//    policy.allowInvalidCertificates = YES;
+    manager.securityPolicy = policy;
+    policy.pinnedCertificates = certSet;
+    policy.validatesDomainName = NO;
+    
     NSDictionary * params = @{
                               @"name" : @"bang",
                               @"phone": @{@"mobile": @"xx", @"home": @"xx"},
                               @"families": @[@"father", @"mother"],
                               @"nums": [NSSet setWithObjects:@"1", @"2", nil] 
                               } ;
-    [manager POST:@"http://localhost:10008/api/post" parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+    [manager GET:@"https://127.0.0.1:10008/api/shoplist" parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary * dict = responseObject;
