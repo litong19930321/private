@@ -16,6 +16,8 @@
 		9D578DB11E5AC70F00233224 /* GCD_and_OperationStudyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D578DB01E5AC70F00233224 /* GCD_and_OperationStudyUITests.m */; };
 		9D578DC21E5AC73A00233224 /* BarrierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D578DC01E5AC73A00233224 /* BarrierViewController.m */; };
 		9D578DC31E5AC73A00233224 /* BarrierViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D578DC11E5AC73A00233224 /* BarrierViewController.xib */; };
+		9D578DCE1E5AE1F700233224 /* GcdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D578DCC1E5AE1F700233224 /* GcdViewController.m */; };
+		9D578DCF1E5AE1F700233224 /* GcdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D578DCD1E5AE1F700233224 /* GcdViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		9D578DBF1E5AC73A00233224 /* BarrierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarrierViewController.h; sourceTree = "<group>"; };
 		9D578DC01E5AC73A00233224 /* BarrierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarrierViewController.m; sourceTree = "<group>"; };
 		9D578DC11E5AC73A00233224 /* BarrierViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarrierViewController.xib; sourceTree = "<group>"; };
+		9D578DCB1E5AE1F700233224 /* GcdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcdViewController.h; sourceTree = "<group>"; };
+		9D578DCC1E5AE1F700233224 /* GcdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcdViewController.m; sourceTree = "<group>"; };
+		9D578DCD1E5AE1F700233224 /* GcdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GcdViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,7 @@
 		9D578D8A1E5AC70F00233224 /* GCD_and_OperationStudy */ = {
 			isa = PBXGroup;
 			children = (
+				9D578DCA1E5AE1E400233224 /* gcd */,
 				9D578DBE1E5AC71900233224 /* barrier */,
 				9D578D8E1E5AC70F00233224 /* AppDelegate.h */,
 				9D578D8F1E5AC70F00233224 /* AppDelegate.m */,
@@ -149,6 +155,16 @@
 				9D578DC11E5AC73A00233224 /* BarrierViewController.xib */,
 			);
 			name = barrier;
+			sourceTree = "<group>";
+		};
+		9D578DCA1E5AE1E400233224 /* gcd */ = {
+			isa = PBXGroup;
+			children = (
+				9D578DCB1E5AE1F700233224 /* GcdViewController.h */,
+				9D578DCC1E5AE1F700233224 /* GcdViewController.m */,
+				9D578DCD1E5AE1F700233224 /* GcdViewController.xib */,
+			);
+			name = gcd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +280,7 @@
 				9D578D9B1E5AC70F00233224 /* LaunchScreen.storyboard in Resources */,
 				9D578D981E5AC70F00233224 /* Assets.xcassets in Resources */,
 				9D578D961E5AC70F00233224 /* Main.storyboard in Resources */,
+				9D578DCF1E5AE1F700233224 /* GcdViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +308,7 @@
 				9D578DC21E5AC73A00233224 /* BarrierViewController.m in Sources */,
 				9D578D901E5AC70F00233224 /* AppDelegate.m in Sources */,
 				9D578D8D1E5AC70F00233224 /* main.m in Sources */,
+				9D578DCE1E5AE1F700233224 /* GcdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +546,7 @@
 				9D578DB71E5AC70F00233224 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D578DB81E5AC70F00233224 /* Build configuration list for PBXNativeTarget "GCD_and_OperationStudyTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +555,7 @@
 				9D578DBA1E5AC70F00233224 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D578DBB1E5AC70F00233224 /* Build configuration list for PBXNativeTarget "GCD_and_OperationStudyUITests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +564,7 @@
 				9D578DBD1E5AC70F00233224 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
