@@ -9,6 +9,7 @@
 #import "Person.h"
 #import <objc/runtime.h>
 #import "MJExtension.h"
+
 @implementation Person
 + (void)initialize
 {
@@ -65,6 +66,12 @@ void  running (id self,SEL sel){
 }
 -(void)forwardInvocation:(NSInvocation *)anInvocation{
     NSLog(@"注册一个没有 实现的方法");
+    anInvocation.target = self;
+    anInvocation.selector = @selector(dream);
+//    unsigned int speed = 100;
+//    [anInvocation setArgument:&speed atIndex:1];
+    [anInvocation invoke];
+    
 }
 -(void)dream{
     NSLog(@"dream");

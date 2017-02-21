@@ -1,0 +1,20 @@
+PODS:
+  - YYCache (1.0.3)
+  - YYImage (1.0.1):
+    - YYImage/Core (= 1.0.1)
+  - YYImage/Core (1.0.1)
+  - YYWebImage (1.0.3):
+    - YYCache
+    - YYImage
+
+DEPENDENCIES:
+  - YYWebImage
+
+SPEC CHECKSUMS:
+  YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
+  YYImage: b41b45bc5f32bfcdf67bdfb9c09da9e9832357c0
+  YYWebImage: 8da75a611fd0d2e0f58a273f9ca0bc731614cb0d
+
+PODFILE CHECKSUM: 2cd2bc6e0de9c52755f58b6a651bd74ac655bcab
+
+COCOAPODS: 1.1.1

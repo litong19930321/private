@@ -19,8 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    BarrierViewController * root = [[BarrierViewController alloc] init];
-    GcdViewController * root = [[GcdViewController alloc] init];
+    BarrierViewController * root = [[BarrierViewController alloc] init];
+//    GcdViewController * root = [[GcdViewController alloc] init];
     self.window.rootViewController = root;
     [self.window makeKeyWindow];
     return YES;

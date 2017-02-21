@@ -7,6 +7,8 @@
 //
 
 #import "BarrierViewController.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
 /*
 dispatch_barrier_sync和dispatch_barrier_async的不共同点：
 在将任务插入到queue的时候，dispatch_barrier_sync需要等待自己的任务（0）结束之后才会继续程序，然后插入被写在它后面的任务（4、5、6），然后执行后面的任务
@@ -25,11 +27,13 @@ dispatch_barrier_sync和dispatch_barrier_async的不共同点：
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self test_barrier_async];
+//    [self barrier_sync];
+//    ((void (*) (id, SEL))objc_msgSend)(self,@selector(findSingalDog));
 }
 //关于  dispatch_barrier_async
 -(void)test_barrier_async{
     
-    dispatch_queue_t queue = dispatch_queue_create("test_1", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t queue = dispatch_queue_create("test_1", DISPATCH_QUEUE_SERIAL);
     dispatch_async(queue, ^{
         NSLog(@"1");
     });
@@ -51,6 +55,7 @@ dispatch_barrier_sync和dispatch_barrier_async的不共同点：
 //        sleep(2);
     });
     NSLog(@"aaa");
+    NSLog(@"%@",[NSThread currentThread]);
     dispatch_async(queue, ^{
 //        sleep(1);
         NSLog(@"4");
@@ -62,8 +67,31 @@ dispatch_barrier_sync和dispatch_barrier_async的不共同点：
     dispatch_async(queue, ^{
         NSLog(@"6");
     });
-    
-    
 }
-
+//关于  dispatch_barrier_async
+-(void)barrier_sync{
+    dispatch_queue_t queue = dispatch_queue_create("lt.queue", DISPATCH_QUEUE_CONCURRENT);
+    NSLog(@"任务5");
+    dispatch_barrier_sync(queue, ^{
+       dispatch_async(queue, ^{
+           NSLog(@"任务二");
+       });
+       dispatch_async(queue, ^{
+            NSLog(@"任务三");
+        });
+        sleep(2);
+        NSLog(@"任务一");
+    });
+    NSLog(@"任务四");
+}
+-(void)findSingalDog{
+    NSArray * arr = @[@"1",@"2",@"3",@"2",@"1"];
+    int dog = 0;
+    for (int i = 0; i < arr.count; i ++) {
+        int cureent = [arr[i] intValue];
+        dog ^= cureent;
+    }
+    
+    NSLog(@"dog : %d",dog);
+}
 @end

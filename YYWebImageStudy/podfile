@@ -1,0 +1,5 @@
+target 'YYWebImageStudy' do
+
+pod 'YYWebImage'
+
+end

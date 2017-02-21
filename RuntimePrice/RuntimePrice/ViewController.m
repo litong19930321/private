@@ -29,7 +29,7 @@
 //    void (*msgSend) (id,SEL);
 //    msgSend = (void (*) (id,SEL))[self methodForSelector:@selector(question_AboutSendMsg)];
 //    msgSend(self,@selector(question_AboutSendMsg));
-//    ((void (*) (id,SEL))objc_msgSend)(self,@selector(question_AboutSendMsg));
+    ((void (*) (id,SEL))objc_msgSend)(self,@selector(question_AboutSendMsg));
     
     //给分类增加 属性的测试
 //    [self addPropetyForCategory];
@@ -42,7 +42,7 @@
     
     //根据字典打印属性
 //    ((void (*) (id,SEL))objc_msgSend)(self,@selector(printJSONTOProp));
-    ((void (*) (id,SEL))objc_msgSendSuper)(self,@selector(testJsonToModel));
+//    ((void (*) (id,SEL))objc_msgSendSuper)(self,@selector(testJsonToModel));
 }
 #pragma mark ---- 关于sendMsg问题
 -(void)question_AboutSendMsg{
@@ -62,7 +62,7 @@
     id value_2 = ((id (*) (id,SEL,id arg))objc_msgSend)((id)p,@selector(eat_arg_returnvalue),@"巧克力");
     NSLog(@"%@",value_2);
     //  5.动态的增加方法，在Person类中 如果收到msg_send(self,@@selector(running))中 自动创建running 方法
-    ((void (*) (id,SEL))objc_msgSend)((id)p,@selector(running));
+    ((void (*) (id,SEL))objc_msgSend)((id)p,@selector(runnig));
     
     /*
      * On some architectures, use objc_msgSend_stret for some struct return types. //结构体

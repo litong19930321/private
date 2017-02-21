@@ -8,7 +8,7 @@
 
 #import "GcdViewController.h"
 
-
+//18410107137
 @interface People : NSObject
 @property (nonatomic,copy) NSString * name;
 @end
@@ -39,7 +39,7 @@
         //相当于对group的任务量减一
         dispatch_group_leave(group);
     });
-    
+ 
     
      //相当于对group的任务量加一
     dispatch_group_enter(group);

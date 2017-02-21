@@ -8,8 +8,11 @@
 
 #import "Car.h"
 #import <objc/runtime.h>
+#import "MJExtension.h"
 @implementation Car
-
++ (NSArray *)mj_allowedPropertyNames{
+    return @[@"name"];
+}
 
 //用于将model 归档 实现NSCODING协议
 -(id)initWithCoder:(NSCoder *)aCoder{
