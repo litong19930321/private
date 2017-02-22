@@ -108,7 +108,7 @@ static int _YYWebImageHighlightedSetterKey;
     int32_t sentinel = [setter cancelWithNewURL:imageURL];
     NSLog(@"%@",[NSThread currentThread]);
     //自己写的方法  用于确保是在主线程进行 图片设置
-    //注意此处为什么要自己重写一个方法，如果直接调用  dispatch_get_main_queue则会造成死锁，如果不判定是否为主线程，则会造成UI操作问题，
+    //注意此处为什么要自己重写一个方法，如果直接调用  dispatch_get_main_queue且当前操作在主线程则会造成死锁，如果不判定是否为主线程，则会造成UI操作问题，
     _yy_dispatch_sync_on_main_queue(^{
         //判断option是否是YYWebImageOptionAvoidSetImage，如果是 不进行处理
         //如果是 YYWebImageOptionSetImageWithFadeAnimation 进入判断处理
@@ -138,6 +138,7 @@ static int _YYWebImageHighlightedSetterKey;
             !(options & YYWebImageOptionUseNSURLCache) &&
             !(options & YYWebImageOptionRefreshImageCache)) {
             //可以看出来 是以URL为key进行从缓存中取值的
+            //此处为yyimagecatch的处理   稍后会看
             imageFromMemory = [manager.cache getImageForKey:[manager cacheKeyForURL:imageURL] withType:YYImageCacheTypeMemory];
         }
         
@@ -176,12 +177,14 @@ static int _YYWebImageHighlightedSetterKey;
             YYWebImageCompletionBlock _completion = ^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
                 __strong typeof(_self) self = _self;
                 BOOL setImage = (stage == YYWebImageStageFinished || stage == YYWebImageStageProgress) && image && !(options & YYWebImageOptionAvoidSetImage);
+                //完成回调要回到主线程  进行UI操作
                 dispatch_async(dispatch_get_main_queue(), ^{
                     BOOL sentinelChanged = weakSetter && weakSetter.sentinel != newSentinel;
                     if (setImage && self && !sentinelChanged) {
                         BOOL showFade = ((options & YYWebImageOptionSetImageWithFadeAnimation) && !self.highlighted);
                         if (showFade) {
                             CATransition *transition = [CATransition animation];
+                            //格局stage设置动画时间
                             transition.duration = stage == YYWebImageStageFinished ? _YYWebImageFadeTime : _YYWebImageProgressiveFadeTime;
                             transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
                             transition.type = kCATransitionFade;
@@ -189,6 +192,7 @@ static int _YYWebImageHighlightedSetterKey;
                         }
                         self.image = image;
                     }
+                    //这个是在图片设置完成后的block
                     if (completion) {
                         if (sentinelChanged) {
                             completion(nil, url, YYWebImageFromNone, YYWebImageStageCancelled, nil);
@@ -198,7 +202,8 @@ static int _YYWebImageHighlightedSetterKey;
                     }
                 });
             };
-            
+            // 开始用 yyimageseeter去请求 图片
+            //newSentinel 一个标志位的作用
             newSentinel = [setter setOperationWithSentinel:sentinel url:imageURL options:options manager:manager progress:_progress transform:transform completion:_completion];
             weakSetter = setter;
         });

@@ -23,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self dispatch_group];
-    [self nssetTest];
+//    [self nssetTest];
+    [self dispatch_block_cancleDemo];
 }
 //dispatch_group的使用
 -(void)dispatch_group{
@@ -53,7 +54,7 @@
         NSLog(@"所有任务都完成了");
     });
 }
-
+//set的测试
 -(void)nssetTest{
     People * people = [[People alloc] init];
     people.name = @"ksfsf";
@@ -67,5 +68,22 @@
     
     NSArray * sortarray = [set sortedArrayUsingDescriptors:@[sort]];
     
+}
+
+//取消block 测试
+-(void)dispatch_block_cancleDemo{
+        dispatch_queue_t serialQueue = dispatch_queue_create("com.lt", DISPATCH_QUEUE_SERIAL);
+        dispatch_block_t firstBlock = dispatch_block_create(0, ^{
+            NSLog(@"first block start");
+            [NSThread sleepForTimeInterval:2.f];
+            NSLog(@"first block end");
+        });
+        dispatch_block_t secondBlock = dispatch_block_create(0, ^{
+            NSLog(@"second block run");
+        });
+        dispatch_async(serialQueue, firstBlock);
+        dispatch_async(serialQueue, secondBlock);
+        //取消secondBlock
+        dispatch_block_cancel(secondBlock);
 }
 @end

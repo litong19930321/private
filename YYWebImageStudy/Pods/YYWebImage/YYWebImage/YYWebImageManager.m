@@ -76,7 +76,7 @@ static UIApplication *_YYSharedApplication() {
                                     progress:(YYWebImageProgressBlock)progress
                                    transform:(YYWebImageTransformBlock)transform
                                   completion:(YYWebImageCompletionBlock)completion {
-    
+    //创建request
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.timeoutInterval = _timeout;
     request.HTTPShouldHandleCookies = (options & YYWebImageOptionHandleCookies) != 0;

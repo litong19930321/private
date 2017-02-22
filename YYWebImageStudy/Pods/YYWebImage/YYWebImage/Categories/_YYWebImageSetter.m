@@ -50,25 +50,31 @@ const NSTimeInterval _YYWebImageProgressiveFadeTime = 0.4;
                            progress:(YYWebImageProgressBlock)progress
                           transform:(YYWebImageTransformBlock)transform
                          completion:(YYWebImageCompletionBlock)completion {
+    //判断如果  标志位不同 直接返回  错误信息为 YYWebImageStageCancelled
     if (sentinel != _sentinel) {
         if (completion) completion(nil, imageURL, YYWebImageFromNone, YYWebImageStageCancelled, nil);
         return _sentinel;
     }
-    
+    //yyimagemanager 执行operation  这个方法  返回一个 YYImageOperation的对象
+    //从这 进入到 manager查看
     NSOperation *operation = [manager requestImageWithURL:imageURL options:options progress:progress transform:transform completion:completion];
+    //如果没完成创建operation且 有complete实现  则回调  错误原因
     if (!operation && completion) {
         NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : @"YYWebImageOperation create failed." };
         completion(nil, imageURL, YYWebImageFromNone, YYWebImageStageFinished, [NSError errorWithDomain:@"com.ibireme.webimage" code:-1 userInfo:userInfo]);
     }
-    
+    //使用信号量 进行加锁操作
     dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER);
     if (sentinel == _sentinel) {
+        //如果之前有operation  则把之前的取消  重新进行请求
         if (_operation) [_operation cancel];
         _operation = operation;
         sentinel = OSAtomicIncrement32(&_sentinel);
     } else {
+        //这个 情况加 同最初的那个判断，但是已经创建了  operation  所以要取消
         [operation cancel];
     }
+    //释放信号量
     dispatch_semaphore_signal(_lock);
     return sentinel;
 }
