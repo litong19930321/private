@@ -12,13 +12,18 @@
 #import "Person.h"
 #import <objc/objc-runtime.h>
 #import <pthread.h>
-
+#import "YYAnimatedImageView.h"
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width -20
+#define kCellHeight ceil((kScreenWidth) * 3.0 / 4.0)
 typedef void(^TestBlock)(NSString * name);
 
 @interface WebImgViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView_first;
 @property (weak, nonatomic) IBOutlet UIButton *startBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView_secend;
+@property (nonatomic, strong) UIImageView * mainImageView;
+
+@property (nonatomic,strong) CAShapeLayer * progressLayer;//进度条指示器
 
 @end
 
@@ -26,12 +31,10 @@ typedef void(^TestBlock)(NSString * name);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Person * person = [Person new];
-    person.name = @"hah";
     
-    
-    
-    
+    _mainImageView = [[YYAnimatedImageView alloc] initWithFrame:CGRectMake(10,70,kScreenWidth, kCellHeight)];
+    _mainImageView.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:_mainImageView];
 }
 
 
@@ -39,8 +42,30 @@ typedef void(^TestBlock)(NSString * name);
 
 
 - (IBAction)startRequestImg:(id)sender {
-    [self.imageView_first yy_setImageWithURL:[NSURL URLWithString:@"https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/f153812406eddc1c6a6d2b1f505ec76d_254_144.jpg"] placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        NSLog(@"%@",[NSThread currentThread]);
+    _progressLayer = [CAShapeLayer layer];
+    _progressLayer.frame = CGRectMake(0, 0, _mainImageView.frame.size.width,  _mainImageView.frame.size.width);
+    UIBezierPath * path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(0, 2)];
+    [path addLineToPoint:CGPointMake( _mainImageView.frame.size.width, 2)];
+    _progressLayer.path = path.CGPath;
+    _progressLayer.strokeColor = [UIColor colorWithRed:0.000 green:0.640 blue:1.000 alpha:0.720].CGColor;
+    _progressLayer.lineCap = kCALineCapButt;
+    _progressLayer.strokeStart = 0;
+    _progressLayer.strokeEnd = 0;
+    _progressLayer.lineWidth = 4;
+    [_mainImageView.layer addSublayer:_progressLayer];
+    
+    NSURL * url = [NSURL URLWithString:@"https://s-media-cache-ak0.pinimg.com/1200x/2e/0c/c5/2e0cc5d86e7b7cd42af225c29f21c37f.jpg"];
+    [_mainImageView yy_setImageWithURL:url placeholder:nil options:YYWebImageOptionProgressiveBlur | YYWebImageOptionShowNetworkActivity  progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        NSLog(@"%ld",receivedSize);
+        CGFloat progress = (CGFloat)receivedSize / expectedSize;
+        progress = progress < 0 ? 0 : progress > 1 ? 1  : progress;
+        if (_progressLayer.hidden) {
+            _progressLayer.hidden = NO;
+        }
+        _progressLayer.strokeEnd = progress;
+    } transform:nil completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        _progressLayer.hidden = YES;
     }];
     
 }
@@ -68,6 +93,10 @@ typedef void(^TestBlock)(NSString * name);
      NSLog(@"hello2");
 }
 
+- (IBAction)test:(id)sender {
+    NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSLog(@"%@",path);
+}
 
 
 

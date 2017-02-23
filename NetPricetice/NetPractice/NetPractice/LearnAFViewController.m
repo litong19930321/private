@@ -53,10 +53,18 @@
 }
 
 
-
+-(void)hello{
+    NSLog(@"%@",[NSThread currentThread]);
+}
 
 - (IBAction)startGet:(id)sender {
-    [self startNetWorking];
+//    [self startNetWorking];
+    dispatch_queue_t queue = dispatch_queue_create("fdfsdf", DISPATCH_QUEUE_CONCURRENT);
+    __weak typeof(self) _weakSelf = self;
+    dispatch_async(queue, ^{
+        [_weakSelf hello];
+    });
+  
  
 }
 - (IBAction)startPost:(id)sender {

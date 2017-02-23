@@ -84,7 +84,7 @@ static UIApplication *_YYSharedApplication() {
     request.HTTPShouldUsePipelining = YES;
     request.cachePolicy = (options & YYWebImageOptionUseNSURLCache) ?
         NSURLRequestUseProtocolCachePolicy : NSURLRequestReloadIgnoringLocalCacheData;
-    
+    //进入到yywebimageoperation进行请求
     YYWebImageOperation *operation = [[YYWebImageOperation alloc] initWithRequest:request
                                                                           options:options
                                                                             cache:_cache

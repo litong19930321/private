@@ -106,7 +106,6 @@ static int _YYWebImageHighlightedSetterKey;
         objc_setAssociatedObject(self, &_YYWebImageSetterKey, setter, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     int32_t sentinel = [setter cancelWithNewURL:imageURL];
-    NSLog(@"%@",[NSThread currentThread]);
     //自己写的方法  用于确保是在主线程进行 图片设置
     //注意此处为什么要自己重写一个方法，如果直接调用  dispatch_get_main_queue且当前操作在主线程则会造成死锁，如果不判定是否为主线程，则会造成UI操作问题，
     _yy_dispatch_sync_on_main_queue(^{
@@ -173,7 +172,7 @@ static int _YYWebImageHighlightedSetterKey;
             
             __block int32_t newSentinel = 0;
             __block __weak typeof(setter) weakSetter = nil;
-            //请求完成进行的回调
+            //生成一个 YYWebImageCompletionBlock 的block
             YYWebImageCompletionBlock _completion = ^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
                 __strong typeof(_self) self = _self;
                 BOOL setImage = (stage == YYWebImageStageFinished || stage == YYWebImageStageProgress) && image && !(options & YYWebImageOptionAvoidSetImage);

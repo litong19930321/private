@@ -13,7 +13,9 @@
 @property (nonatomic,strong)  NSMutableData * mData;
 @property (nonatomic,strong) NSURLSessionDownloadTask * downloadTask;//这个用于断点下载
 @property (nonatomic,strong) NSURLSession * resumeSession;//这个是用于断点下载恢复的session
+@property (nonatomic,strong) NSURLSessionTask * commontask;
 @property (nonatomic,strong) NSData * gloableData;//这个是存储当前下载的data
+@property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
 @end
 
 @implementation URLSessionViewController
@@ -23,11 +25,12 @@
     //使用block回调调用session data task
 //    [self useNSURLSessionDataTask];
     //使用代理方法调用session data task
-//    [self useDeleageteUrlSession];
+    _mData = [[NSMutableData alloc] init];
+    [self useDeleageteUrlSession];
     //使用block 调用 session dowmloadtask
 //    [self useNSURLSessionDownloadTask];
     //使用delegate方法调用  urlsessiondownloadtask
-    [self useNSURLSessionDownloadTaskByDelegate];
+//    [self useNSURLSessionDownloadTaskByDelegate];
 }
 - (IBAction)suspend:(id)sender {
 //    [_downloadTask cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
@@ -50,10 +53,9 @@
     NSURLSessionDataTask * dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://localhost:10008/api/shoplist"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
       NSDictionary *dict =   [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        
         NSString * json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
-        
+//
+//        
         NSLog(@"%@",json);
     }];
     [dataTask resume];
@@ -64,13 +66,14 @@
 -(void)useDeleageteUrlSession{
     _mData = [NSMutableData data];
 //    NSURL * getUrl = [NSURL URLWithString:@"http://localhost:10008/api/shoplist"];
-    NSURL * postUrl = [NSURL URLWithString:@"http://localhost:10008/api/post"];
+    NSURL * postUrl = [NSURL URLWithString:@"https://s-media-cache-ak0.pinimg.com/1200x/2e/0c/c5/2e0cc5d86e7b7cd42af225c29f21c37f.jpg"];
     NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:postUrl];
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [@"username=daka&pwd=123" dataUsingEncoding:NSUTF8StringEncoding];
+//    request.HTTPMethod = @"POST";
+//    request.HTTPBody = [@"username=daka&pwd=123" dataUsingEncoding:NSUTF8StringEncoding];
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     NSURLSession * session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[[NSOperationQueue alloc] init]];
-    NSURLSessionDataTask * task = [session dataTaskWithRequest:request];
-    [task resume];
+    _commontask = [session dataTaskWithRequest:request];
+    [_commontask resume];
 }
 
 /**
@@ -84,7 +87,6 @@
         [[NSFileManager defaultManager] moveItemAtURL:location toURL:[NSURL fileURLWithPath:ptah] error:nil];
         NSLog(@"%@",ptah);
     }];
-   
     [task resume];
 }
 
@@ -93,10 +95,8 @@
  */
 -(void)useNSURLSessionDownloadTaskByDelegate{
     _resumeSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
-    _downloadTask = [_resumeSession downloadTaskWithURL:[NSURL URLWithString:@"https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/lvpics/w%3D1000/sign=4d2cf9ff03e939015602893e4bdc56e7/9358d109b3de9c82e0adb8506e81800a18d84320.jpg"]];
+    _downloadTask = [_resumeSession downloadTaskWithURL:[NSURL URLWithString:@"http://img.qzcns.com/2017/0215/20170215054646515.jpg"]];
     [_downloadTask resume];
-    
-    
 }
 #pragma mark - NSURLSessionDataDelegate
 -(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler{
@@ -104,13 +104,19 @@
 }
 -(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data{
     [_mData appendData:data];
-    
 }
 -(void)URLSession:(NSURLSession *)session task:(nonnull NSURLSessionTask *)task didCompleteWithError:(nullable NSError *)error{
-    NSString * string = [[NSString alloc] initWithData:_mData encoding:NSUTF8StringEncoding];
-    NSLog(@"收到%@",string);
-    NSLog(@"完成");
-    self.gloableData = error.userInfo[NSURLSessionDownloadTaskResumeData];
+    UIImage * image = [[UIImage alloc] initWithData:_mData.copy];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _mainImageView.image = image;
+    });
+    
+    
+    
+//    NSString * string = [[NSString alloc] initWithData:_mData encoding:NSUTF8StringEncoding];
+//    NSLog(@"收到%@",string);
+//    NSLog(@"完成");
+//    self.gloableData = error.userInfo[NSURLSessionDownloadTaskResumeData];
 }
 #pragma mark - NSURLSessionDownloadDelegate
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location{
