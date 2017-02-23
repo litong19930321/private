@@ -161,14 +161,13 @@ static void URLInBlackListAdd(NSURL *url) {
 @end
 
 typedef NSURLSessionAuthChallengeDisposition (^YYURLSessionDidReceiveAuthenticationChallengeBlock)(NSURLSession *session, NSURLAuthenticationChallenge *challenge, NSURLCredential * __autoreleasing *credential);
-@interface YYWebImageOperation() <NSURLConnectionDelegate,NSURLSessionDownloadDelegate>
+@interface YYWebImageOperation() <NSURLSessionDownloadDelegate>
 @property (readwrite, getter=isExecuting) BOOL executing;
 @property (readwrite, getter=isFinished) BOOL finished;
 @property (readwrite, getter=isCancelled) BOOL cancelled;
 @property (readwrite, getter=isStarted) BOOL started;
 @property (nonatomic, strong) NSRecursiveLock *lock;
 
-//@property (nonatomic, strong) NSURLConnection *connection;
 
 
 //替换属性
@@ -210,7 +209,7 @@ typedef NSURLSessionAuthChallengeDisposition (^YYURLSessionDidReceiveAuthenticat
     }
 }
 
-/// Global image request network thread, used by NSURLConnection delegate.
+/// Global image request network thread
 + (NSThread *)_networkThread {
     static NSThread *thread = nil;
     static dispatch_once_t onceToken;
@@ -654,7 +653,7 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)response
     if (!_progressiveDecoder) {
         _progressiveDecoder = [[YYImageDecoder alloc] initWithScale:[UIScreen mainScreen].scale];
     }
-    [_progressiveDecoder updateData:_data final:NO];
+    [_progressiveDecoder updateData:_data.copy final:NO];
     if ([self isCancelled]) return;
     
     if (_progressiveDecoder.type == YYImageTypeUnknown ||
@@ -702,7 +701,7 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)response
             NSInteger scanLength = (NSInteger)_data.length - (NSInteger)_progressiveScanedLength - 4;
             if (scanLength <= 2) return;
             NSRange scanRange = NSMakeRange(_progressiveScanedLength, scanLength);
-            NSRange markerRange = [_data rangeOfData:JPEGSOSMarker() options:kNilOptions range:scanRange];
+            NSRange markerRange = [_data.copy rangeOfData:JPEGSOSMarker() options:kNilOptions range:scanRange];
             _progressiveScanedLength = _data.length;
             if (markerRange.location == NSNotFound) return;
             if ([self isCancelled]) return;
@@ -747,81 +746,6 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)response
         }
     }
 
-}
-- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask
-didFinishDownloadingToURL:(NSURL *)location{
-    @autoreleasepool {
-        [_lock lock];
-        _task = nil;
-        if (![self isCancelled]) {
-            __weak typeof(self) _self = self;
-            dispatch_async([self.class _imageQueue], ^{
-                __strong typeof(_self) self = _self;
-                if (!self) return;
-                NSData * data = [NSData dataWithContentsOfURL:location];
-                self.data = data;
-                dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-                dispatch_async(queue, ^{
-                    NSFileManager * manager = [NSFileManager defaultManager];
-                    [manager removeItemAtURL:location error:nil];
-                });
-                BOOL shouldDecode = (self.options & YYWebImageOptionIgnoreImageDecoding) == 0;
-                BOOL allowAnimation = (self.options & YYWebImageOptionIgnoreAnimatedImage) == 0;
-                UIImage *image;
-                BOOL hasAnimation = NO;
-                if (allowAnimation) {
-                    image = [[YYImage alloc] initWithData:self.data scale:[UIScreen mainScreen].scale];
-                    if (shouldDecode) image = [image yy_imageByDecoded];
-                    if ([((YYImage *)image) animatedImageFrameCount] > 1) {
-                        hasAnimation = YES;
-                    }
-                } else {
-                    YYImageDecoder *decoder = [YYImageDecoder decoderWithData:self.data scale:[UIScreen mainScreen].scale];
-                    image = [decoder frameAtIndex:0 decodeForDisplay:shouldDecode].image;
-                }
-                
-                /*
-                 If the image has animation, save the original image data to disk cache.
-                 If the image is not PNG or JPEG, re-encode the image to PNG or JPEG for
-                 better decoding performance.
-                 */
-                
-                YYImageType imageType = YYImageDetectType((__bridge CFDataRef)self.data);
-                switch (imageType) {
-                    case YYImageTypeJPEG:
-                    case YYImageTypeGIF:
-                    case YYImageTypePNG:
-                    case YYImageTypeWebP: { // save to disk cache
-                        if (!hasAnimation) {
-                            if (imageType == YYImageTypeGIF ||
-                                imageType == YYImageTypeWebP) {
-                                self.data = nil; // clear the data, re-encode for disk cache
-                            }
-                        }
-                    } break;
-                    default: {
-                        self.data = nil; // clear the data, re-encode for disk cache
-                    } break;
-                }
-                if ([self isCancelled]) return;
-                
-                if (self.transform && image) {
-                    UIImage *newImage = self.transform(image, self.request.URL);
-                    if (newImage != image) {
-                        self.data = nil;
-                    }
-                    image = newImage;
-                    if ([self isCancelled]) return;
-                }
-                
-                [self performSelector:@selector(_didReceiveImageFromWeb:) onThread:[self.class _networkThread] withObject:image waitUntilDone:NO];
-            });
-            if (![self.request.URL isFileURL] && (self.options & YYWebImageOptionShowNetworkActivity)) {
-                [YYWebImageManager decrementNetworkActivityCount];
-            }
-        }
-        [_lock unlock];
-    }
 }
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
 didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
@@ -870,13 +794,13 @@ didCompleteWithError:(nullable NSError *)error{
                 UIImage *image;
                 BOOL hasAnimation = NO;
                 if (allowAnimation) {
-                    image = [[YYImage alloc] initWithData:self.data scale:[UIScreen mainScreen].scale];
+                    image = [[YYImage alloc] initWithData:self.data.copy scale:[UIScreen mainScreen].scale];
                     if (shouldDecode) image = [image yy_imageByDecoded];
                     if ([((YYImage *)image) animatedImageFrameCount] > 1) {
                         hasAnimation = YES;
                     }
                 } else {
-                    YYImageDecoder *decoder = [YYImageDecoder decoderWithData:self.data scale:[UIScreen mainScreen].scale];
+                    YYImageDecoder *decoder = [YYImageDecoder decoderWithData:self.data.copy scale:[UIScreen mainScreen].scale];
                     image = [decoder frameAtIndex:0 decodeForDisplay:shouldDecode].image;
                 }
                 

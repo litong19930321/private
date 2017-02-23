@@ -20,8 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //    self.window.rootViewController = [[RunLoopViewController alloc] init];
-    self.window.rootViewController = [[URLSessionViewController alloc] init];
-//    self.window.rootViewController = [[LearnAFViewController alloc] init];
+//    self.window.rootViewController = [[URLSessionViewController alloc] init];
+    self.window.rootViewController = [[LearnAFViewController alloc] init];
     [self.window makeKeyWindow];
     return YES;
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9D5209831E55E7260072C35D /* URLSessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5209821E55E7260072C35D /* URLSessionViewController.xib */; };
-		9DAB32381E5A044000E484AE /* lt.cer in Resources */ = {isa = PBXBuildFile; fileRef = 9DAB32371E5A044000E484AE /* lt.cer */; };
+		9D6E95C41E5EF306007F4736 /* test.cer in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E95C31E5EF2CC007F4736 /* test.cer */; };
 		9DD7F4E91E5558760055D1DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD7F4E81E5558760055D1DB /* main.m */; };
 		9DD7F4EC1E5558760055D1DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD7F4EB1E5558760055D1DB /* AppDelegate.m */; };
 		9DD7F4F21E5558760055D1DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD7F4F01E5558760055D1DB /* Main.storyboard */; };
@@ -48,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		9D5209821E55E7260072C35D /* URLSessionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = URLSessionViewController.xib; sourceTree = "<group>"; };
-		9DAB32371E5A044000E484AE /* lt.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = lt.cer; sourceTree = "<group>"; };
+		9D6E95C31E5EF2CC007F4736 /* test.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.cer; sourceTree = "<group>"; };
 		9DD7F4E41E5558760055D1DB /* NetPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD7F4E81E5558760055D1DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DD7F4EA1E5558760055D1DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		9DD7F4E61E5558760055D1DB /* NetPractice */ = {
 			isa = PBXGroup;
 			children = (
-				9DAB32371E5A044000E484AE /* lt.cer */,
+				9D6E95C31E5EF2CC007F4736 /* test.cer */,
 				9DEC7B291E56E455009BDB60 /* LearnAf */,
 				9D5209811E55E0380072C35D /* URLSession */,
 				9DD7F5201E55A47C0055D1DB /* AFNetworking */,
@@ -288,6 +288,9 @@
 		9DD7F4DC1E5558760055D1DB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = lt;
 				TargetAttributes = {
@@ -335,7 +338,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DAB32381E5A044000E484AE /* lt.cer in Resources */,
 				9DD7F51F1E5558CA0055D1DB /* RunLoopViewController.xib in Resources */,
 				9D5209831E55E7260072C35D /* URLSessionViewController.xib in Resources */,
 				9DEC7B2E1E56E4E7009BDB60 /* LearnAFViewController.xib in Resources */,
@@ -366,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D6E95C41E5EF306007F4736 /* test.cer in Sources */,
 				9DD7F5331E55A47C0055D1DB /* AFURLSessionManager.m in Sources */,
 				9DD7F4EC1E5558760055D1DB /* AppDelegate.m in Sources */,
 				9DD7F4E91E5558760055D1DB /* main.m in Sources */,

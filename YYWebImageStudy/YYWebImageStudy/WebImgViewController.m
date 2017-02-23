@@ -54,7 +54,6 @@ typedef void(^TestBlock)(NSString * name);
     _progressLayer.strokeEnd = 0;
     _progressLayer.lineWidth = 4;
     [_mainImageView.layer addSublayer:_progressLayer];
-    
     NSURL * url = [NSURL URLWithString:@"https://s-media-cache-ak0.pinimg.com/1200x/2e/0c/c5/2e0cc5d86e7b7cd42af225c29f21c37f.jpg"];
     [_mainImageView yy_setImageWithURL:url placeholder:nil options:YYWebImageOptionProgressiveBlur | YYWebImageOptionShowNetworkActivity  progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         NSLog(@"%ld",receivedSize);

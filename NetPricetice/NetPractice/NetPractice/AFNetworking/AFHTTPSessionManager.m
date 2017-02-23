@@ -273,7 +273,8 @@
                                          failure:(void (^)(NSURLSessionDataTask *, NSError *))failure
 {
     NSError *serializationError = nil;
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:&serializationError];
+    NSString * url = [NSString stringWithFormat:@"%@%@",self.baseURL.absoluteString,URLString];
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:url parameters:parameters error:&serializationError];
    
     if (serializationError) {
         if (failure) {

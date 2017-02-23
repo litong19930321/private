@@ -19,7 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    
+  
+}
+-(void)createObserToWatchRunloop{
     //创建一个观察者  监听主runloop的各种状态
     CFRunLoopRef loop = CFRunLoopGetMain();
     CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(CFAllocatorGetDefault(), kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
@@ -52,18 +56,13 @@
     CFRunLoopAddObserver(loop, observer, kCFRunLoopDefaultMode);
 }
 
-
 -(void)hello{
     NSLog(@"%@",[NSThread currentThread]);
 }
 
 - (IBAction)startGet:(id)sender {
-//    [self startNetWorking];
-    dispatch_queue_t queue = dispatch_queue_create("fdfsdf", DISPATCH_QUEUE_CONCURRENT);
-    __weak typeof(self) _weakSelf = self;
-    dispatch_async(queue, ^{
-        [_weakSelf hello];
-    });
+    [self startNetWorking];
+   
   
  
 }
@@ -73,8 +72,14 @@
 
 
 -(void)startNetWorking{
-    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
-    [manager GET:@"http://localhost:10008/api/shoplist" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    AFHTTPSessionManager * manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://"]];
+    AFSecurityPolicy * securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModePublicKey];
+    securityPolicy.allowInvalidCertificates = YES;
+//    NSString * path = [[NSBundle mainBundle] pathForResource:@"lt" ofType:@"cer"];
+//    securityPolicy.pinnedCertificates = [NSSet setWithObject:[NSData dataWithContentsOfFile:path]];
+    manager.securityPolicy = securityPolicy;
+    
+    [manager GET:@"192.168.100.204:10008/api/shoplist" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary * dict = responseObject;
