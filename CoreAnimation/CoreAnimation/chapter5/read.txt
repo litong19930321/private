@@ -1,0 +1,20 @@
+//CAShapeLayer  6.1
+cashapelayer.md
+//CATextLayer
+CATextLayer.md 6.2- 6.4
+//CATransformLayer
+catransformlayer.md  6.5
+//CAScrollLayer
+cascrollLayer.md qd6.10
+//基础渐变
+cagradientLayer.md  6.6 - 6.7
+//重复图层
+careplicatorLayer.md 6.8 - 6.10
+//CATiledLayer
+catiledLayer.md  6.12
+//CAEmitterLayer
+caemitterlayer.md  6.14
+//caeagllayer
+caeagllayer.md 6.15
+//AVPlayerLayer
+avplayerlayer.md  6.16-6.17

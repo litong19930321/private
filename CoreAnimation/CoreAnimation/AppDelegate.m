@@ -13,6 +13,21 @@
 //chapter--1
 #import "ContentRectViewController.h"
 #import "CustomdrawingViewController.h"
+//chapter--2
+#import "LayoutViewController.h"
+#import "HitTestViewController.h"
+//chapter--3
+#import "LayerPropertyViewController.h"
+#import "ScalingfilterViewController.h"
+//chapter--4
+#import "AffineTransViewController.h"
+#import "Layer0flatteningViewController.h"
+#import "SolidViewController.h"
+//chapter--5
+#import "ShapLayerViewController.h"
+#import "CAScrollerViewController.h"
+#import "ReplicatorViewController.h"
+#import "AvplayerViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -28,11 +43,28 @@
     
     //chapter--1
 //    ContentRectViewController * root = [[ContentRectViewController alloc] init];
-    CustomdrawingViewController * root = [[CustomdrawingViewController alloc] init];
+//    CustomdrawingViewController * root = [[CustomdrawingViewController alloc] init];
     
     
-    
+    //chapter--2
+//    LayoutViewController * root = [[LayoutViewController alloc] init];
+//    HitTestViewController * root = [[HitTestViewController alloc] init];
 
+    //chapter--3
+//    LayerPropertyViewController * root = [[LayerPropertyViewController alloc] init];
+//    ScalingfilterViewController * root = [[ScalingfilterViewController alloc] init];
+    
+    
+    //chapter--4
+//    AffineTransViewController * root = [[AffineTransViewController alloc] init];
+//    SolidViewController * root = [[SolidViewController alloc] init];
+    
+    
+    //chapter--5
+//    ShapLayerViewController * root = [[ShapLayerViewController alloc] init];
+//    CAScrollerViewController * root = [[CAScrollerViewController alloc] init];
+//    ReplicatorViewController * root = [[ReplicatorViewController alloc] init];
+    AvplayerViewController *root = [[AvplayerViewController alloc] init];
     self.window.rootViewController = root;
     return YES;
 }
