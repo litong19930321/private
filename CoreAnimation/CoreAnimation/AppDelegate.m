@@ -28,7 +28,20 @@
 #import "CAScrollerViewController.h"
 #import "ReplicatorViewController.h"
 #import "AvplayerViewController.h"
-@interface AppDelegate ()
+//chapter--6
+#import "CoreAnViewController.h"
+
+//chapter--7
+#import "CABasicAnViewController.h"
+#import "FictitiousViewController.h"
+
+//chapter--8
+#import "RepeatAnimalViewController.h"
+
+//chapter--8
+#import "MediaTimingViewController.h"
+#import "TestViewController.h"
+@interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -64,11 +77,46 @@
 //    ShapLayerViewController * root = [[ShapLayerViewController alloc] init];
 //    CAScrollerViewController * root = [[CAScrollerViewController alloc] init];
 //    ReplicatorViewController * root = [[ReplicatorViewController alloc] init];
-    AvplayerViewController *root = [[AvplayerViewController alloc] init];
+//    AvplayerViewController *root = [[AvplayerViewController alloc] init];
+    
+    //chapter--6
+//    CoreAnViewController * root = [[CoreAnViewController alloc] init];
+    //chapter--7
+//    CABasicAnViewController * root = [[CABasicAnViewController alloc] init];
+//    FictitiousViewController * root = [[FictitiousViewController alloc] init];
+    
+    
+    //chapter--8
+//    RepeatAnimalViewController * root = [[RepeatAnimalViewController alloc]init];
+    //chapter--9
+//    MediaTimingViewController * root = [[MediaTimingViewController alloc] init];
+    TestViewController * root = [[TestViewController alloc] init];
     self.window.rootViewController = root;
     return YES;
+    //用transition给tabbar做动画
+    /*
+    self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+    UIViewController *viewController1 = [[UIViewController alloc] init];
+    viewController1.title = @"num1";
+    viewController1.view.backgroundColor = [UIColor greenColor];
+    UIViewController *viewController2 = [[UIViewController alloc] init];
+    viewController2.title = @"num2";
+    viewController2.view.backgroundColor = [UIColor orangeColor];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[viewController1, viewController2];
+    tabBarController.delegate = self;
+    self.window.rootViewController = tabBarController;
+    [self.window makeKeyAndVisible];
+    return  YES;
+     */
 }
 
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionMoveIn;
+    //apply transition to tab bar controller's view
+    [tabBarController.view.layer addAnimation:transition forKey:nil];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

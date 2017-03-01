@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D093F661E666AA300C03BE3 /* CABasicAnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D093F641E666AA300C03BE3 /* CABasicAnViewController.m */; };
+		9D093F671E666AA300C03BE3 /* CABasicAnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D093F651E666AA300C03BE3 /* CABasicAnViewController.xib */; };
+		9D093F691E66794F00C03BE3 /* avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D093F681E66794F00C03BE3 /* avatar@2x.png */; };
+		9D093F6D1E6698AD00C03BE3 /* FictitiousViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D093F6B1E6698AD00C03BE3 /* FictitiousViewController.m */; };
+		9D093F6E1E6698AD00C03BE3 /* FictitiousViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D093F6C1E6698AD00C03BE3 /* FictitiousViewController.xib */; };
+		9D093F741E66ACEF00C03BE3 /* RepeatAnimalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D093F721E66ACEF00C03BE3 /* RepeatAnimalViewController.m */; };
+		9D093F751E66ACEF00C03BE3 /* RepeatAnimalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D093F731E66ACEF00C03BE3 /* RepeatAnimalViewController.xib */; };
+		9D093F771E66AD5600C03BE3 /* door@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D093F761E66AD5600C03BE3 /* door@2x.png */; };
+		9D093F7C1E66BBDD00C03BE3 /* MediaTimingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D093F7A1E66BBDD00C03BE3 /* MediaTimingViewController.m */; };
+		9D093F7D1E66BBDD00C03BE3 /* MediaTimingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D093F7B1E66BBDD00C03BE3 /* MediaTimingViewController.xib */; };
+		9D093F811E66CDF800C03BE3 /* ball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D093F801E66CDF800C03BE3 /* ball@2x.png */; };
+		9D093F851E66DBFA00C03BE3 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D093F841E66DBFA00C03BE3 /* TestViewController.m */; };
 		9D2254E71E641122000406BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2254E61E641122000406BF /* main.m */; };
 		9D2254EA1E641122000406BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2254E91E641122000406BF /* AppDelegate.m */; };
 		9D2254F01E641122000406BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2254EE1E641122000406BF /* Main.storyboard */; };
@@ -46,6 +58,10 @@
 		9D688CD41E65BFBA00C56DAE /* AvplayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D688CD21E65BFB900C56DAE /* AvplayerViewController.m */; };
 		9D688CD51E65BFBA00C56DAE /* AvplayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D688CD31E65BFBA00C56DAE /* AvplayerViewController.xib */; };
 		9D688CD61E65C11F00C56DAE /* background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9D688CD01E65BF9B00C56DAE /* background.mp4 */; };
+		9D688CD81E65C4C800C56DAE /* read.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9D688CD71E65C4C800C56DAE /* read.txt */; };
+		9D688CDC1E65C85B00C56DAE /* CoreAnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D688CDA1E65C85B00C56DAE /* CoreAnViewController.m */; };
+		9D688CDD1E65C85B00C56DAE /* CoreAnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D688CDB1E65C85B00C56DAE /* CoreAnViewController.xib */; };
+		9D688CDF1E65DACB00C56DAE /* read.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9D688CDE1E65DACB00C56DAE /* read.txt */; };
 		9DF55D181E6467AA00FE399E /* LayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF55D161E6467AA00FE399E /* LayoutViewController.m */; };
 		9DF55D191E6467AA00FE399E /* LayoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DF55D171E6467AA00FE399E /* LayoutViewController.xib */; };
 		9DF55D1E1E64721C00FE399E /* min@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DF55D1A1E64721C00FE399E /* min@2x.png */; };
@@ -77,6 +93,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D093F631E666AA300C03BE3 /* CABasicAnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CABasicAnViewController.h; sourceTree = "<group>"; };
+		9D093F641E666AA300C03BE3 /* CABasicAnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CABasicAnViewController.m; sourceTree = "<group>"; };
+		9D093F651E666AA300C03BE3 /* CABasicAnViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CABasicAnViewController.xib; sourceTree = "<group>"; };
+		9D093F681E66794F00C03BE3 /* avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar@2x.png"; sourceTree = "<group>"; };
+		9D093F6A1E6698AD00C03BE3 /* FictitiousViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FictitiousViewController.h; sourceTree = "<group>"; };
+		9D093F6B1E6698AD00C03BE3 /* FictitiousViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FictitiousViewController.m; sourceTree = "<group>"; };
+		9D093F6C1E6698AD00C03BE3 /* FictitiousViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FictitiousViewController.xib; sourceTree = "<group>"; };
+		9D093F711E66ACEF00C03BE3 /* RepeatAnimalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepeatAnimalViewController.h; sourceTree = "<group>"; };
+		9D093F721E66ACEF00C03BE3 /* RepeatAnimalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepeatAnimalViewController.m; sourceTree = "<group>"; };
+		9D093F731E66ACEF00C03BE3 /* RepeatAnimalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepeatAnimalViewController.xib; sourceTree = "<group>"; };
+		9D093F761E66AD5600C03BE3 /* door@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "door@2x.png"; sourceTree = "<group>"; };
+		9D093F791E66BBDD00C03BE3 /* MediaTimingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTimingViewController.h; sourceTree = "<group>"; };
+		9D093F7A1E66BBDD00C03BE3 /* MediaTimingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTimingViewController.m; sourceTree = "<group>"; };
+		9D093F7B1E66BBDD00C03BE3 /* MediaTimingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaTimingViewController.xib; sourceTree = "<group>"; };
+		9D093F801E66CDF800C03BE3 /* ball@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ball@2x.png"; sourceTree = "<group>"; };
+		9D093F831E66DBFA00C03BE3 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		9D093F841E66DBFA00C03BE3 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		9D2254E21E641122000406BF /* CoreAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D2254E61E641122000406BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9D2254E81E641122000406BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,6 +167,11 @@
 		9D688CD11E65BFB900C56DAE /* AvplayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvplayerViewController.h; sourceTree = "<group>"; };
 		9D688CD21E65BFB900C56DAE /* AvplayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvplayerViewController.m; sourceTree = "<group>"; };
 		9D688CD31E65BFBA00C56DAE /* AvplayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvplayerViewController.xib; sourceTree = "<group>"; };
+		9D688CD71E65C4C800C56DAE /* read.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read.txt; sourceTree = "<group>"; };
+		9D688CD91E65C85B00C56DAE /* CoreAnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAnViewController.h; sourceTree = "<group>"; };
+		9D688CDA1E65C85B00C56DAE /* CoreAnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAnViewController.m; sourceTree = "<group>"; };
+		9D688CDB1E65C85B00C56DAE /* CoreAnViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreAnViewController.xib; sourceTree = "<group>"; };
+		9D688CDE1E65DACB00C56DAE /* read.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read.txt; sourceTree = "<group>"; };
 		9DF55D151E6467AA00FE399E /* LayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutViewController.h; sourceTree = "<group>"; };
 		9DF55D161E6467AA00FE399E /* LayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutViewController.m; sourceTree = "<group>"; };
 		9DF55D171E6467AA00FE399E /* LayoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LayoutViewController.xib; sourceTree = "<group>"; };
@@ -175,6 +213,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D093F701E66ABF900C03BE3 /* chapter8 */ = {
+			isa = PBXGroup;
+			children = (
+				9D093F761E66AD5600C03BE3 /* door@2x.png */,
+				9D093F711E66ACEF00C03BE3 /* RepeatAnimalViewController.h */,
+				9D093F721E66ACEF00C03BE3 /* RepeatAnimalViewController.m */,
+				9D093F731E66ACEF00C03BE3 /* RepeatAnimalViewController.xib */,
+			);
+			path = chapter8;
+			sourceTree = "<group>";
+		};
+		9D093F781E66BB9B00C03BE3 /* chapter9 */ = {
+			isa = PBXGroup;
+			children = (
+				9D093F801E66CDF800C03BE3 /* ball@2x.png */,
+				9D093F791E66BBDD00C03BE3 /* MediaTimingViewController.h */,
+				9D093F7A1E66BBDD00C03BE3 /* MediaTimingViewController.m */,
+				9D093F7B1E66BBDD00C03BE3 /* MediaTimingViewController.xib */,
+			);
+			path = chapter9;
+			sourceTree = "<group>";
+		};
+		9D093F821E66D97C00C03BE3 /* chapter10 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = chapter10;
+			sourceTree = "<group>";
+		};
 		9D2254D91E641122000406BF = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +265,7 @@
 		9D2254E41E641122000406BF /* CoreAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				9D093F821E66D97C00C03BE3 /* chapter10 */,
 				9D22552B1E6433D3000406BF /* chapter1 */,
 				9D2255321E6433D3000406BF /* chapter2 */,
 				9D2255331E6433D3000406BF /* chapter3 */,
@@ -205,6 +273,8 @@
 				9D6054801E65683700F08C14 /* chapter5 */,
 				9D6054811E65683700F08C14 /* chapter6 */,
 				9D6054821E65683700F08C14 /* chapter7 */,
+				9D093F701E66ABF900C03BE3 /* chapter8 */,
+				9D093F781E66BB9B00C03BE3 /* chapter9 */,
 				9D22551D1E64116A000406BF /* coreAnimation */,
 				9D2254E81E641122000406BF /* AppDelegate.h */,
 				9D2254E91E641122000406BF /* AppDelegate.m */,
@@ -250,6 +320,8 @@
 				9D2255191E641167000406BF /* CoreAnimationViewController.m */,
 				9D22551A1E641167000406BF /* CoreAnimationViewController.xib */,
 				9D22551E1E642E43000406BF /* test.jpg */,
+				9D093F831E66DBFA00C03BE3 /* TestViewController.h */,
+				9D093F841E66DBFA00C03BE3 /* TestViewController.m */,
 			);
 			name = coreAnimation;
 			sourceTree = "<group>";
@@ -345,6 +417,10 @@
 		9D6054811E65683700F08C14 /* chapter6 */ = {
 			isa = PBXGroup;
 			children = (
+				9D688CD71E65C4C800C56DAE /* read.txt */,
+				9D688CD91E65C85B00C56DAE /* CoreAnViewController.h */,
+				9D688CDA1E65C85B00C56DAE /* CoreAnViewController.m */,
+				9D688CDB1E65C85B00C56DAE /* CoreAnViewController.xib */,
 			);
 			path = chapter6;
 			sourceTree = "<group>";
@@ -352,6 +428,14 @@
 		9D6054821E65683700F08C14 /* chapter7 */ = {
 			isa = PBXGroup;
 			children = (
+				9D093F681E66794F00C03BE3 /* avatar@2x.png */,
+				9D688CDE1E65DACB00C56DAE /* read.txt */,
+				9D093F631E666AA300C03BE3 /* CABasicAnViewController.h */,
+				9D093F641E666AA300C03BE3 /* CABasicAnViewController.m */,
+				9D093F651E666AA300C03BE3 /* CABasicAnViewController.xib */,
+				9D093F6A1E6698AD00C03BE3 /* FictitiousViewController.h */,
+				9D093F6B1E6698AD00C03BE3 /* FictitiousViewController.m */,
+				9D093F6C1E6698AD00C03BE3 /* FictitiousViewController.xib */,
 			);
 			path = chapter7;
 			sourceTree = "<group>";
@@ -474,20 +558,30 @@
 				9D6054931E65880700F08C14 /* ReplicatorViewController.xib in Resources */,
 				9D60548E1E65833600F08C14 /* CAScrollerViewController.xib in Resources */,
 				9DF55D261E647B3300FE399E /* HitTestViewController.xib in Resources */,
+				9D688CDF1E65DACB00C56DAE /* read.txt in Resources */,
 				9D2255351E6433D3000406BF /* ContentRectViewController.xib in Resources */,
 				9DF55D281E647DD800FE399E /* read.txt in Resources */,
+				9D093F751E66ACEF00C03BE3 /* RepeatAnimalViewController.xib in Resources */,
+				9D093F811E66CDF800C03BE3 /* ball@2x.png in Resources */,
 				9D6054621E651BB100F08C14 /* chapter3@2x.png in Resources */,
+				9D688CDD1E65C85B00C56DAE /* CoreAnViewController.xib in Resources */,
 				9D22551C1E641167000406BF /* CoreAnimationViewController.xib in Resources */,
 				9D6054691E651F1900F08C14 /* disgt@2x.png in Resources */,
+				9D093F671E666AA300C03BE3 /* CABasicAnViewController.xib in Resources */,
 				9D2255391E643E49000406BF /* read.txt in Resources */,
 				9D6054601E6519E500F08C14 /* test.jpg in Resources */,
 				9DF55D1F1E64721C00FE399E /* bg@2x.png in Resources */,
+				9D093F691E66794F00C03BE3 /* avatar@2x.png in Resources */,
 				9D6054731E654CB700F08C14 /* 原理.png in Resources */,
 				9D22551F1E642E43000406BF /* test.jpg in Resources */,
 				9D6054751E6550F600F08C14 /* cat@2x.png in Resources */,
 				9DF55D1E1E64721C00FE399E /* min@2x.png in Resources */,
+				9D093F6E1E6698AD00C03BE3 /* FictitiousViewController.xib in Resources */,
 				9D2254F51E641122000406BF /* LaunchScreen.storyboard in Resources */,
+				9D093F771E66AD5600C03BE3 /* door@2x.png in Resources */,
+				9D688CD81E65C4C800C56DAE /* read.txt in Resources */,
 				9D2255371E6433D3000406BF /* CustomdrawingViewController.xib in Resources */,
+				9D093F7D1E66BBDD00C03BE3 /* MediaTimingViewController.xib in Resources */,
 				9D6054891E656C7600F08C14 /* ShapLayerViewController.xib in Resources */,
 				9D60546C1E6526E800F08C14 /* read.txt in Resources */,
 				9D60547A1E65558600F08C14 /* Layer0flatteningViewController.xib in Resources */,
@@ -522,21 +616,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DF55D251E647B3300FE399E /* HitTestViewController.m in Sources */,
+				9D093F741E66ACEF00C03BE3 /* RepeatAnimalViewController.m in Sources */,
 				9D6054921E65880700F08C14 /* ReplicatorViewController.m in Sources */,
 				9DF55D2C1E6484F200FE399E /* LayerPropertyViewController.m in Sources */,
 				9D2255361E6433D3000406BF /* CustomdrawingViewController.m in Sources */,
 				9D2254EA1E641122000406BF /* AppDelegate.m in Sources */,
+				9D093F7C1E66BBDD00C03BE3 /* MediaTimingViewController.m in Sources */,
 				9D6054701E65442A00F08C14 /* AffineTransViewController.m in Sources */,
 				9D688CD41E65BFBA00C56DAE /* AvplayerViewController.m in Sources */,
 				9DF55D181E6467AA00FE399E /* LayoutViewController.m in Sources */,
 				9D60548D1E65833600F08C14 /* CAScrollerViewController.m in Sources */,
 				9D6054881E656C7600F08C14 /* ShapLayerViewController.m in Sources */,
+				9D093F661E666AA300C03BE3 /* CABasicAnViewController.m in Sources */,
 				9D6054661E651E8E00F08C14 /* ScalingfilterViewController.m in Sources */,
 				9D22551B1E641167000406BF /* CoreAnimationViewController.m in Sources */,
+				9D093F6D1E6698AD00C03BE3 /* FictitiousViewController.m in Sources */,
 				9D2255341E6433D3000406BF /* ContentRectViewController.m in Sources */,
 				9D2254E71E641122000406BF /* main.m in Sources */,
+				9D093F851E66DBFA00C03BE3 /* TestViewController.m in Sources */,
 				9D60547E1E65595700F08C14 /* SolidViewController.m in Sources */,
 				9D6054791E65558600F08C14 /* Layer0flatteningViewController.m in Sources */,
+				9D688CDC1E65C85B00C56DAE /* CoreAnViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

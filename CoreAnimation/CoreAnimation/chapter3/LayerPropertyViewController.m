@@ -31,13 +31,18 @@
     self.cornerTestView.layer.shadowRadius = 5.0f;
     
 //    可以通过指定一个shadowPath来提高性能。shadowPath是一个CGPathRef类型（一个指向CGPath的指针）。CGPath是一个Core Graphics对象，用来指定任意的一个矢量图形。我们可以通过这个属性单独于图层形状之外指定阴影的形状
-    self.layerView1.layer.opacity = 1.0f;
+    [self.view setNeedsLayout];
+     CALayer * layer1 = [CALayer layer];
+    layer1.opacity = 1.0f;
+    layer1.backgroundColor = (__bridge CGColorRef _Nullable)([UIColor orangeColor]);
     CGMutablePathRef squarePath = CGPathCreateMutable();
-    CGPathAddRect(squarePath, NULL,self.layerView1.bounds);
+    CGPathAddRect(squarePath, NULL, CGRectMake(self.layerView1.frame.origin.x, self.layerView1.frame.origin.y - 5, self.layerView1.frame.size.width + 10, self.layerView1.frame.size.height + 10));
+//    CGPathAddRect(squarePath, NULL,self.layerView1.bounds);
+    self.layerView1.layer.opacity = 1.0f;
     self.layerView1.layer.shadowPath = squarePath;
     CGPathRelease(squarePath);
     
-    [self.view setNeedsLayout];
+    
     [self setMaskLayer];
 }
 -(void)setMaskLayer{

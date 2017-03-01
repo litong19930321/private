@@ -86,7 +86,6 @@
     layer.fontSize = font.pointSize;
     layer.contentsScale = [UIScreen mainScreen].scale;
     layer.foregroundColor = [UIColor whiteColor].CGColor;
-    
     layer.string = @"hello";
 }
 

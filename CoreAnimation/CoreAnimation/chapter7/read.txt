@@ -1,0 +1,8 @@
+//属性动画
+caanimationdelegate.md 8.1
+//动画组
+animation-groups.md 8.3
+//过渡
+transitions.md 8.4-8.5
+//在动画过程中取消动画
+changes-custom-transitions.md 8.6
