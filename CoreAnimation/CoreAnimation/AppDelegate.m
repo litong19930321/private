@@ -38,9 +38,13 @@
 //chapter--8
 #import "RepeatAnimalViewController.h"
 
-//chapter--8
+//chapter--9
 #import "MediaTimingViewController.h"
 #import "TestViewController.h"
+//chapter--10
+#import "ShadowPathViewController.h"
+//play
+#import "PlayViewController.h"
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
@@ -90,7 +94,11 @@
 //    RepeatAnimalViewController * root = [[RepeatAnimalViewController alloc]init];
     //chapter--9
 //    MediaTimingViewController * root = [[MediaTimingViewController alloc] init];
-    TestViewController * root = [[TestViewController alloc] init];
+//    TestViewController * root = [[TestViewController alloc] init];
+    
+//    ShadowPathViewController * root = [[ShadowPathViewController alloc] init];
+    PlayViewController * root = [[PlayViewController alloc] init];
+    
     self.window.rootViewController = root;
     return YES;
     //用transition给tabbar做动画

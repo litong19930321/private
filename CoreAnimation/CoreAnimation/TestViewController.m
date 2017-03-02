@@ -11,6 +11,7 @@
 @interface TestViewController (){
     NSInteger _count;
     NSMutableArray * _arr;
+    BOOL _iscomplete;
 }
 @property (nonatomic,strong) CALayer * mainLayer;
 @end
@@ -19,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _iscomplete = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     _mainLayer = [CALayer layer];
     _mainLayer.backgroundColor = [UIColor orangeColor].CGColor;
@@ -42,7 +44,7 @@
         [self.view.layer addSublayer:layer];
         [_arr addObject:layer];
     }
-    NSTimer * timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(free:) userInfo:nil repeats:YES];
+    NSTimer * timer = [NSTimer timerWithTimeInterval:0.05 target:self selector:@selector(free:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
     
     
@@ -50,11 +52,12 @@
 -(void)free:(NSTimer *)timer{
     if (_count == 8) {
         [timer invalidate];
+        _count = 0;
+        _iscomplete = YES;
         return;
     }
     CALayer * layer = _arr[_count];
     CABasicAnimation * animal = [CABasicAnimation animation];
-    animal.duration = 0.5;
     animal.keyPath = @"position";
     CGFloat x = 100 *  cos(M_PI / 4 * _count);
     CGFloat y = 100 * sin(M_PI / 4 * _count);
@@ -64,23 +67,48 @@
     CGFloat tox = x + layer.position.x;
     CGFloat toy = y + layer.position.y;
     animal.toValue = [NSValue valueWithCGPoint:CGPointMake(tox, toy)];
-    animal.duration = 0.5;
-    animal.byValue = [NSValue valueWithCGPoint:CGPointMake(x, y)];
-    [layer addAnimation:animal forKey:nil];
-//    layer.position = CGPointMake(tox, toy);
+    animal.duration = 0.2;
+//    animal.byValue = [NSValue valueWithCGPoint:CGPointMake(x, y)];
+    animal.fillMode = kCAFillModeForwards;
     animal.removedOnCompletion = NO;
+    [layer addAnimation:animal forKey:nil];
     
     _count += 1;
     
+}
+-(void)reciveBall{
+    NSTimer * timer = [NSTimer timerWithTimeInterval:0.05 target:self selector:@selector(recive:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+-(void)recive:(NSTimer *)timer{
+    if (_count == 8) {
+        [timer invalidate];
+        _count = 0;
+        _iscomplete = NO;
+        return;
+    }
+    CALayer * layer = _arr[_count];
+    CABasicAnimation * animal = [CABasicAnimation animation];
+    animal.keyPath = @"position";
+    animal.toValue = [NSValue valueWithCGPoint:_mainLayer.position];
+    animal.duration = 0.2;
+    animal.fillMode = kCAFillModeForwards;
+    animal.removedOnCompletion = NO;
+    [layer addAnimation:animal forKey:nil];
+    
+    _count += 1;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     CGPoint  point = [[touches anyObject] locationInView:self.view];
     point = [_mainLayer convertPoint:point fromLayer:self.view.layer];
-    if ([_mainLayer containsPoint:point]) {
+    if ([_mainLayer containsPoint:point] && !_iscomplete) {
         NSLog(@"hello");
         [self showMoreBall];
+    }else if ([_mainLayer containsPoint:point] && _iscomplete){
+        [self reciveBall];
     }
 }
 

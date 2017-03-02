@@ -34,6 +34,8 @@
 		9D2255361E6433D3000406BF /* CustomdrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2255301E6433D3000406BF /* CustomdrawingViewController.m */; };
 		9D2255371E6433D3000406BF /* CustomdrawingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2255311E6433D3000406BF /* CustomdrawingViewController.xib */; };
 		9D2255391E643E49000406BF /* read.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9D2255381E643E49000406BF /* read.txt */; };
+		9D4E7C851E6821C600D4E61A /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E7C831E6821C600D4E61A /* PlayViewController.m */; };
+		9D4E7C861E6821C600D4E61A /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4E7C841E6821C600D4E61A /* PlayViewController.xib */; };
 		9D6054601E6519E500F08C14 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D60545F1E6519E500F08C14 /* test.jpg */; };
 		9D6054621E651BB100F08C14 /* chapter3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D6054611E651BB100F08C14 /* chapter3@2x.png */; };
 		9D6054661E651E8E00F08C14 /* ScalingfilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6054641E651E8E00F08C14 /* ScalingfilterViewController.m */; };
@@ -62,6 +64,8 @@
 		9D688CDC1E65C85B00C56DAE /* CoreAnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D688CDA1E65C85B00C56DAE /* CoreAnViewController.m */; };
 		9D688CDD1E65C85B00C56DAE /* CoreAnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D688CDB1E65C85B00C56DAE /* CoreAnViewController.xib */; };
 		9D688CDF1E65DACB00C56DAE /* read.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9D688CDE1E65DACB00C56DAE /* read.txt */; };
+		9D9FCA551E670DC0002C6EBB /* ShadowPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9FCA531E670DC0002C6EBB /* ShadowPathViewController.m */; };
+		9D9FCA561E670DC0002C6EBB /* ShadowPathViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9FCA541E670DC0002C6EBB /* ShadowPathViewController.xib */; };
 		9DF55D181E6467AA00FE399E /* LayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF55D161E6467AA00FE399E /* LayoutViewController.m */; };
 		9DF55D191E6467AA00FE399E /* LayoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DF55D171E6467AA00FE399E /* LayoutViewController.xib */; };
 		9DF55D1E1E64721C00FE399E /* min@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DF55D1A1E64721C00FE399E /* min@2x.png */; };
@@ -135,6 +139,9 @@
 		9D2255301E6433D3000406BF /* CustomdrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomdrawingViewController.m; sourceTree = "<group>"; };
 		9D2255311E6433D3000406BF /* CustomdrawingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomdrawingViewController.xib; sourceTree = "<group>"; };
 		9D2255381E643E49000406BF /* read.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read.txt; sourceTree = "<group>"; };
+		9D4E7C821E6821C600D4E61A /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
+		9D4E7C831E6821C600D4E61A /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		9D4E7C841E6821C600D4E61A /* PlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayViewController.xib; sourceTree = "<group>"; };
 		9D60545F1E6519E500F08C14 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		9D6054611E651BB100F08C14 /* chapter3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chapter3@2x.png"; sourceTree = "<group>"; };
 		9D6054631E651E8E00F08C14 /* ScalingfilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScalingfilterViewController.h; sourceTree = "<group>"; };
@@ -172,6 +179,9 @@
 		9D688CDA1E65C85B00C56DAE /* CoreAnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAnViewController.m; sourceTree = "<group>"; };
 		9D688CDB1E65C85B00C56DAE /* CoreAnViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreAnViewController.xib; sourceTree = "<group>"; };
 		9D688CDE1E65DACB00C56DAE /* read.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read.txt; sourceTree = "<group>"; };
+		9D9FCA521E670DC0002C6EBB /* ShadowPathViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowPathViewController.h; sourceTree = "<group>"; };
+		9D9FCA531E670DC0002C6EBB /* ShadowPathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowPathViewController.m; sourceTree = "<group>"; };
+		9D9FCA541E670DC0002C6EBB /* ShadowPathViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShadowPathViewController.xib; sourceTree = "<group>"; };
 		9DF55D151E6467AA00FE399E /* LayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutViewController.h; sourceTree = "<group>"; };
 		9DF55D161E6467AA00FE399E /* LayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutViewController.m; sourceTree = "<group>"; };
 		9DF55D171E6467AA00FE399E /* LayoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LayoutViewController.xib; sourceTree = "<group>"; };
@@ -238,6 +248,12 @@
 		9D093F821E66D97C00C03BE3 /* chapter10 */ = {
 			isa = PBXGroup;
 			children = (
+				9D9FCA521E670DC0002C6EBB /* ShadowPathViewController.h */,
+				9D9FCA531E670DC0002C6EBB /* ShadowPathViewController.m */,
+				9D9FCA541E670DC0002C6EBB /* ShadowPathViewController.xib */,
+				9D4E7C821E6821C600D4E61A /* PlayViewController.h */,
+				9D4E7C831E6821C600D4E61A /* PlayViewController.m */,
+				9D4E7C841E6821C600D4E61A /* PlayViewController.xib */,
 			);
 			path = chapter10;
 			sourceTree = "<group>";
@@ -583,11 +599,13 @@
 				9D2255371E6433D3000406BF /* CustomdrawingViewController.xib in Resources */,
 				9D093F7D1E66BBDD00C03BE3 /* MediaTimingViewController.xib in Resources */,
 				9D6054891E656C7600F08C14 /* ShapLayerViewController.xib in Resources */,
+				9D9FCA561E670DC0002C6EBB /* ShadowPathViewController.xib in Resources */,
 				9D60546C1E6526E800F08C14 /* read.txt in Resources */,
 				9D60547A1E65558600F08C14 /* Layer0flatteningViewController.xib in Resources */,
 				9D2254F21E641122000406BF /* Assets.xcassets in Resources */,
 				9DF55D201E64721C00FE399E /* sec@2x.png in Resources */,
 				9D6054671E651E8E00F08C14 /* ScalingfilterViewController.xib in Resources */,
+				9D4E7C861E6821C600D4E61A /* PlayViewController.xib in Resources */,
 				9D6054841E6568D800F08C14 /* read.txt in Resources */,
 				9D2254F01E641122000406BF /* Main.storyboard in Resources */,
 				9D688CD51E65BFBA00C56DAE /* AvplayerViewController.xib in Resources */,
@@ -619,12 +637,14 @@
 				9D093F741E66ACEF00C03BE3 /* RepeatAnimalViewController.m in Sources */,
 				9D6054921E65880700F08C14 /* ReplicatorViewController.m in Sources */,
 				9DF55D2C1E6484F200FE399E /* LayerPropertyViewController.m in Sources */,
+				9D4E7C851E6821C600D4E61A /* PlayViewController.m in Sources */,
 				9D2255361E6433D3000406BF /* CustomdrawingViewController.m in Sources */,
 				9D2254EA1E641122000406BF /* AppDelegate.m in Sources */,
 				9D093F7C1E66BBDD00C03BE3 /* MediaTimingViewController.m in Sources */,
 				9D6054701E65442A00F08C14 /* AffineTransViewController.m in Sources */,
 				9D688CD41E65BFBA00C56DAE /* AvplayerViewController.m in Sources */,
 				9DF55D181E6467AA00FE399E /* LayoutViewController.m in Sources */,
+				9D9FCA551E670DC0002C6EBB /* ShadowPathViewController.m in Sources */,
 				9D60548D1E65833600F08C14 /* CAScrollerViewController.m in Sources */,
 				9D6054881E656C7600F08C14 /* ShapLayerViewController.m in Sources */,
 				9D093F661E666AA300C03BE3 /* CABasicAnViewController.m in Sources */,

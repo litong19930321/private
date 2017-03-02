@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WebImgViewController.h"
+#import "AnimalViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -20,7 +21,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     WebImgViewController * root = [[WebImgViewController alloc] init];
-    
+//    AnimalViewController * root = [[AnimalViewController alloc] init];
     self.window.rootViewController = root;
     
     

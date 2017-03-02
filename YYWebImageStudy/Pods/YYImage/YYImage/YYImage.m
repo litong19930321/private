@@ -150,10 +150,14 @@ static CGFloat _NSStringPathScale(NSString *string) {
         YYImageFrame *frame = [decoder frameAtIndex:0 decodeForDisplay:YES];
         UIImage *image = frame.image;
         if (!image) return nil;
+        //这里返回的是第一帧的图片
         self = [self initWithCGImage:image.CGImage scale:decoder.scale orientation:image.imageOrientation];
         if (!self) return nil;
         _animatedImageType = decoder.type;
+        //当frameCount >1 也就是 当图片是动态图的时候
         if (decoder.frameCount > 1) {
+            //注意看这里，这里把decoder 当做自己成员变量了
+            //为什么要这样做？ 因为当时上面返回的是第一帧的图片，但是对于frameCount > 1的动态图，当然返回一张是不够的，这里保留decoder，在需要使用YYAnimatedImageView代理方法的时候可以通过decoder来返回不同索引的图片
             _decoder = decoder;
             _bytesPerFrame = CGImageGetBytesPerRow(image.CGImage) * CGImageGetHeight(image.CGImage);
             _animatedImageMemorySize = _bytesPerFrame * decoder.frameCount;

@@ -1944,7 +1944,8 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
     dispatch_semaphore_wait(_framesLock, DISPATCH_TIME_FOREVER);
     _frames = nil;
     dispatch_semaphore_signal(_framesLock);
-    
+    //使用ImageIO框架去获得图片
+    //使用CGImageSourceCreateWithData获得图片类型是 CGImageSourceRef
     if (!_source) {
         if (_finalized) {
             _source = CGImageSourceCreateWithData((__bridge CFDataRef)_data, NULL);
@@ -1956,29 +1957,37 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
         CGImageSourceUpdateData(_source, (__bridge CFDataRef)_data, _finalized);
     }
     if (!_source) return;
-    
+    //这里frameCount代表图片的数量，比如GIF其实就是一组图片
+    //下面是一些不同类型的判断
     _frameCount = CGImageSourceGetCount(_source);
     if (_frameCount == 0) return;
     
-    if (!_finalized) { // ignore multi-frame before finalized
+    if (!_finalized) {
         _frameCount = 1;
     } else {
-        if (_type == YYImageTypePNG) { // use custom apng decoder and ignore multi-frame
+        if (_type == YYImageTypePNG) {
             _frameCount = 1;
         }
-        if (_type == YYImageTypeGIF) { // get gif loop count
+        if (_type == YYImageTypeGIF) {
+            //这字典打印出来是
+            //FileSize = 487202;
+            //"{GIF}" =     {
+            //    HasGlobalColorMap = 1;
+            //    LoopCount = 0;
+            //};
+            //  loopCount = 0 表示会无线循环当前的gif
             CFDictionaryRef properties = CGImageSourceCopyProperties(_source, NULL);
             if (properties) {
                 CFTypeRef loop = CFDictionaryGetValue(properties, kCGImagePropertyGIFLoopCount);
                 if (loop) CFNumberGetValue(loop, kCFNumberNSIntegerType, &_loopCount);
+                
                 CFRelease(properties);
             }
         }
     }
     
-    /*
-     ICO, GIF, APNG may contains multi-frame.
-     */
+    //建立一个数组，把每个图片的索引，延迟时间等封装成_YYImageDecoderFrame类
+    //加入到数组中
     NSMutableArray *frames = [NSMutableArray new];
     for (NSUInteger i = 0; i < _frameCount; i++) {
         _YYImageDecoderFrame *frame = [_YYImageDecoderFrame new];
@@ -1987,7 +1996,8 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
         frame.hasAlpha = YES;
         frame.isFullSize = YES;
         [frames addObject:frame];
-        
+        //得到每一帧图片的属性
+        //包括图片的 宽  高   延迟时间  颜色空间等
         CFDictionaryRef properties = CGImageSourceCopyPropertiesAtIndex(_source, i, NULL);
         if (properties) {
             NSTimeInterval duration = 0;
@@ -2000,16 +2010,22 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
             if (value) CFNumberGetValue(value, kCFNumberNSIntegerType, &height);
             if (_type == YYImageTypeGIF) {
                 CFDictionaryRef gif = CFDictionaryGetValue(properties, kCGImagePropertyGIFDictionary);
+                //此处打断点 输出
+                // {
+                //    DelayTime = "0.07";
+                //    UnclampedDelayTime = "0.07";
+                // }
+                //表示每一帧图片的延迟时间，也就是需要显示的时间
                 if (gif) {
-                    // Use the unclamped frame delay if it exists.
+                   
                     value = CFDictionaryGetValue(gif, kCGImagePropertyGIFUnclampedDelayTime);
                     if (!value) {
-                        // Fall back to the clamped frame delay if the unclamped frame delay does not exist.
                         value = CFDictionaryGetValue(gif, kCGImagePropertyGIFDelayTime);
                     }
                     if (value) CFNumberGetValue(value, kCFNumberDoubleType, &duration);
                 }
             }
+            //对动画中需要到的关键属性进行赋值
             
             frame.width = width;
             frame.height = height;

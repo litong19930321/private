@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		022A8D6A32ED1284B88AC930 /* libPods-YYWebImageStudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD337D7BB2E00D6E6D5370E /* libPods-YYWebImageStudy.a */; };
+		9D4E7C7E1E67BB9900D4E61A /* AnimalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E7C7C1E67BB9900D4E61A /* AnimalViewController.m */; };
+		9D4E7C7F1E67BB9900D4E61A /* AnimalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4E7C7D1E67BB9900D4E61A /* AnimalViewController.xib */; };
+		9D4E7C811E67BDB000D4E61A /* gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9D4E7C801E67BDB000D4E61A /* gif.gif */; };
 		9DDC3D0F1E5BE63E005DFE1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC3D0E1E5BE63E005DFE1F /* main.m */; };
 		9DDC3D121E5BE63E005DFE1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC3D111E5BE63E005DFE1F /* AppDelegate.m */; };
 		9DDC3D181E5BE63E005DFE1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC3D161E5BE63E005DFE1F /* Main.storyboard */; };
@@ -40,6 +43,10 @@
 /* Begin PBXFileReference section */
 		4BD337D7BB2E00D6E6D5370E /* libPods-YYWebImageStudy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YYWebImageStudy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AAF4C95E9E04B7DC69EA160 /* Pods-YYWebImageStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYWebImageStudy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YYWebImageStudy/Pods-YYWebImageStudy.debug.xcconfig"; sourceTree = "<group>"; };
+		9D4E7C7B1E67BB9900D4E61A /* AnimalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalViewController.h; sourceTree = "<group>"; };
+		9D4E7C7C1E67BB9900D4E61A /* AnimalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalViewController.m; sourceTree = "<group>"; };
+		9D4E7C7D1E67BB9900D4E61A /* AnimalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimalViewController.xib; sourceTree = "<group>"; };
+		9D4E7C801E67BDB000D4E61A /* gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif.gif; sourceTree = "<group>"; };
 		9DDC3D0A1E5BE63E005DFE1F /* YYWebImageStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYWebImageStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DDC3D0E1E5BE63E005DFE1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DDC3D101E5BE63E005DFE1F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -96,6 +103,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9D4E7C7A1E67BB8A00D4E61A /* animalImg */ = {
+			isa = PBXGroup;
+			children = (
+				9D4E7C801E67BDB000D4E61A /* gif.gif */,
+				9D4E7C7B1E67BB9900D4E61A /* AnimalViewController.h */,
+				9D4E7C7C1E67BB9900D4E61A /* AnimalViewController.m */,
+				9D4E7C7D1E67BB9900D4E61A /* AnimalViewController.xib */,
+			);
+			path = animalImg;
+			sourceTree = "<group>";
+		};
 		9DDC3D011E5BE63E005DFE1F = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +139,7 @@
 		9DDC3D0C1E5BE63E005DFE1F /* YYWebImageStudy */ = {
 			isa = PBXGroup;
 			children = (
+				9D4E7C7A1E67BB8A00D4E61A /* animalImg */,
 				9DDC3D461E5C1EA0005DFE1F /* models */,
 				9DDC3D451E5BE7AC005DFE1F /* controllers */,
 				9DDC3D101E5BE63E005DFE1F /* AppDelegate.h */,
@@ -302,6 +321,8 @@
 			files = (
 				9DDC3D1D1E5BE63E005DFE1F /* LaunchScreen.storyboard in Resources */,
 				9DDC3D1A1E5BE63E005DFE1F /* Assets.xcassets in Resources */,
+				9D4E7C7F1E67BB9900D4E61A /* AnimalViewController.xib in Resources */,
+				9D4E7C811E67BDB000D4E61A /* gif.gif in Resources */,
 				9DDC3D181E5BE63E005DFE1F /* Main.storyboard in Resources */,
 				9DDC3D441E5BE7A8005DFE1F /* WebImgViewController.xib in Resources */,
 			);
@@ -378,6 +399,7 @@
 			files = (
 				9DDC3D121E5BE63E005DFE1F /* AppDelegate.m in Sources */,
 				9DDC3D431E5BE7A8005DFE1F /* WebImgViewController.m in Sources */,
+				9D4E7C7E1E67BB9900D4E61A /* AnimalViewController.m in Sources */,
 				9DDC3D491E5C1EC0005DFE1F /* Person.m in Sources */,
 				9DDC3D0F1E5BE63E005DFE1F /* main.m in Sources */,
 			);

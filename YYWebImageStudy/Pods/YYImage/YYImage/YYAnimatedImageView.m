@@ -344,17 +344,24 @@ typedef NS_ENUM(NSUInteger, YYAnimatedImageType) {
     id newVisibleImage = [self imageForType:newType];
     NSUInteger newImageFrameCount = 0;
     BOOL hasContentsRect = NO;
+
     if ([newVisibleImage isKindOfClass:[UIImage class]] &&
+        //这句话其实就是把newVisibleImage当做代理对象使用
+        //因为这里用的都是YYImage类型，YYImage已经实现了<YYAnimatedImage>代理方法
         [newVisibleImage conformsToProtocol:@protocol(YYAnimatedImage)]) {
+        //得到图片的个数
         newImageFrameCount = ((UIImage<YYAnimatedImage> *) newVisibleImage).animatedImageFrameCount;
         if (newImageFrameCount > 1) {
             hasContentsRect = [((UIImage<YYAnimatedImage> *) newVisibleImage) respondsToSelector:@selector(animatedImageContentsRectAtIndex:)];
         }
     }
     if (!hasContentsRect && _curImageHasContentsRect) {
+        //这个是关闭默认的隐式动画，防止对自己的动画播放产生影响，
+        //有兴趣的可以看看 core animation
         if (!CGRectEqualToRect(self.layer.contentsRect, CGRectMake(0, 0, 1, 1)) ) {
             [CATransaction begin];
             [CATransaction setDisableActions:YES];
+            //设置layer的显示范围是整个寄宿图片
             self.layer.contentsRect = CGRectMake(0, 0, 1, 1);
             [CATransaction commit];
         }
@@ -366,6 +373,8 @@ typedef NS_ENUM(NSUInteger, YYAnimatedImageType) {
     }
     
     if (newImageFrameCount > 1) {
+        //如果是 图片数量>1 针对动态图
+        //resetAnimated就是创建了一个CADisplayLink定时器去刷新图片显示
         [self resetAnimated];
         _curAnimatedImage = newVisibleImage;
         _curFrame = newVisibleImage;
@@ -374,6 +383,7 @@ typedef NS_ENUM(NSUInteger, YYAnimatedImageType) {
         [self calcMaxBufferCount];
     }
     [self setNeedsDisplay];
+    //开始播放动画
     [self didMoved];
 }
 
@@ -460,6 +470,7 @@ typedef NS_ENUM(NSUInteger, YYAnimatedImageType) {
 
 - (void)step:(CADisplayLink *)link {
     UIImage <YYAnimatedImage> *image = _curAnimatedImage;
+    
     NSMutableDictionary *buffer = _buffer;
     UIImage *bufferedImage = nil;
     NSUInteger nextIndex = (_curIndex + 1) % _totalFrameCount;
@@ -474,16 +485,23 @@ typedef NS_ENUM(NSUInteger, YYAnimatedImageType) {
     NSTimeInterval delay = 0;
     if (!_bufferMiss) {
         _time += link.duration;
+        //拿到当前索引图片的延迟时间，也就是需要显示的时间
         delay = [image animatedImageDurationAtIndex:_curIndex];
+        //如果当前的link.duration还没到，直接返回等到下一次调起
+        //就拿文章头部的那个动态图来说，每张图显示的时间大约在0.07秒左右
+        //而CADisplayLink每次任务执行的时间大约是0.016秒
+        //所以不会用每次都刷新图片显示
         if (_time < delay) return;
+        //如果调用了就用当前的时间减去 当前图片需要显示的时间
         _time -= delay;
         if (nextIndex == 0) {
             _curLoop++;
             if (_curLoop >= _totalLoop && _totalLoop != 0) {
                 _loopEnd = YES;
                 [self stopAnimating];
-                [self.layer setNeedsDisplay]; // let system call `displayLayer:` before runloop sleep
-                return; // stop at last frame
+                //主动调起刷新layer，系统会调用displayLayer
+                [self.layer setNeedsDisplay];
+                return;
             }
         }
         delay = [image animatedImageDurationAtIndex:nextIndex];
@@ -527,11 +545,12 @@ typedef NS_ENUM(NSUInteger, YYAnimatedImageType) {
 }
 
 - (void)displayLayer:(CALayer *)layer {
+    //_curFrame
     if (_curFrame) {
         layer.contents = (__bridge id)_curFrame.CGImage;
     }
 }
-
+//设置要显示 图片的范围
 - (void)setContentsRect:(CGRect)rect forImage:(UIImage *)image{
     CGRect layerRect = CGRectMake(0, 0, 1, 1);
     if (image) {
