@@ -24,7 +24,8 @@
     [super viewDidLoad];
 //    [self dispatch_group];
 //    [self nssetTest];
-    [self dispatch_block_cancleDemo];
+//    [self dispatch_block_cancleDemo];
+    
 }
 //dispatch_group的使用
 -(void)dispatch_group{

@@ -32,6 +32,7 @@
     
     [model addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
     model.name = @"danker";
+
 //     [model removeObserver:self forKeyPath:@"name"];
 //    [model addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew context:nil];
 //    [model setValue:@20 forKey:@"age"];
